@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom CSS Framework - Complete Style Guide</title>
+    <link rel="stylesheet" href="../dist/framework.css">
+    <style>
+        body {
+            font-family: var(--font-primary);
+            line-height: var(--text-line-height);
+            margin: 0;
+            background: var(--bg-color);
+            color: var(--text-color);
+        }
+        
+        .style-guide {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--gutter);
+        }
+        
+        .sg-section {
+            margin-bottom: 4rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid var(--border-color-light);
+        }
+        
+        .sg-grid {
+            display: grid;
+            gap: var(--grid-gap);
+            margin: 2rem 0;
+        }
+        
+        .color-swatch {
+            border-radius: var(--radius-m);
+            padding: var(--space-l);
+            text-align: center;
+            font-weight: 500;
+            border: 1px solid var(--border-color-light);
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .color-name {
+            font-family: var(--font-mono);
+            font-size: var(--text-s);
+            margin-top: var(--space-s);
+            opacity: 0.8;
+        }
+        
+        .type-specimen {
+            margin: var(--space-m) 0;
+            padding: var(--space-l);
+            border: 1px solid var(--border-color-light);
+            border-radius: var(--radius-m);
+            background: var(--neutral-ultra-light);
+        }
+        
+        .spacing-demo {
+            background: var(--primary-trans-10);
+            border: 2px dashed var(--primary-trans-30);
+            border-radius: var(--radius-s);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-dark);
+            font-weight: 500;
+            font-size: var(--text-s);
+        }
+        
+        .demo-card {
+            background: var(--white);
+            border-radius: var(--radius-l);
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid var(--border-color-light);
+        }
+        
+        .demo-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .demo-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-light), var(--accent-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: var(--text-l);
+            font-weight: 600;
+        }
+        
+        .demo-content {
+            padding: var(--space-l);
+        }
+        
+        .variable-list {
+            font-family: var(--font-mono);
+            font-size: var(--text-s);
+            line-height: 1.8;
+            background: var(--shade-trans-5);
+            padding: var(--space-m);
+            border-radius: var(--radius-s);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .grid-demo {
+            background: var(--neutral-ultra-light);
+            border: 1px solid var(--border-color-light);
+            border-radius: var(--radius-m);
+            padding: var(--space-m);
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .shadow-demo {
+            background: var(--white);
+            border-radius: var(--radius-m);
+            padding: var(--space-l);
+            text-align: center;
+            margin: var(--space-m);
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+        }
+        
+        .toc {
+            background: var(--neutral-ultra-light);
+            border-radius: var(--radius-l);
+            padding: var(--space-xl);
+            margin-bottom: 3rem;
+        }
+        
+        .toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-s);
+        }
+        
+        .toc a {
+            color: var(--primary);
+            text-decoration: none;
+            padding: var(--space-s);
+            border-radius: var(--radius-s);
+            transition: var(--transition);
+            display: block;
+        }
+        
+        .toc a:hover {
+            background: var(--primary-trans-10);
+            color: var(--primary-dark);
+        }
+    </style>
+</head>
+<body>
+    <div class="style-guide">
+        <header class="text--center margin-bottom--xl">
+            <h1 class="text--display-1 text--primary margin-bottom--s">Custom CSS Framework</h1>
+            <p class="text--xl text--base-light">Complete Style Guide & Component Library</p>
+            <p class="text--m">A variable-driven CSS framework inspired by Automatic.css principles</p>
+        </header>
+
+        <nav class="toc">
+            <h2 class="text--h3 margin-bottom--m">Table of Contents</h2>
+            <ul>
+                <li><a href="#colors">Color System</a></li>
+                <li><a href="#typography">Typography</a></li>
+                <li><a href="#spacing">Spacing & Layout</a></li>
+                <li><a href="#components">Components</a></li>
+                <li><a href="#effects">Effects & Shadows</a></li>
+                <li><a href="#variables">CSS Variables</a></li>
+            </ul>
+        </nav>
+
+        <!-- Color System -->
+        <section id="colors" class="sg-section">
+            <h2 class="text--h2 text--primary">Color System</h2>
+            <p class="text--l text--base-light">Comprehensive color palette with automatic variations and contextual usage.</p>
+
+            <h3 class="text--h3">Brand Colors</h3>
+            <div class="sg-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <div class="color-swatch bg--primary text--white">
+                    <div>Primary</div>
+                    <div class="color-name">.bg--primary<br>#0066cc</div>
+                </div>
+                <div class="color-swatch bg--secondary text--white">
+                    <div>Secondary</div>
+                    <div class="color-name">.bg--secondary<br>#6c757d</div>
+                </div>
+                <div class="color-swatch bg--accent text--white">
+                    <div>Accent</div>
+                    <div class="color-name">.bg--accent<br>#ff6b6b</div>
+                </div>
+                <div class="color-swatch bg--base text--white">
+                    <div>Base</div>
+                    <div class="color-name">.bg--base<br>#4a5568</div>
+                </div>
+                <div class="color-swatch bg--shade text--white">
+                    <div>Shade</div>
+                    <div class="color-name">.bg--shade<br>#1a202c</div>
+                </div>
+                <div class="color-swatch bg--neutral text--base">
+                    <div>Neutral</div>
+                    <div class="color-name">.bg--neutral<br>#e2e8f0</div>
+                </div>
+            </div>
+
+            <h3 class="text--h3">Primary Color Variations</h3>
+            <div class="sg-grid" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
+                <div class="color-swatch bg--primary-ultra-light text--primary-dark">
+                    <div>Ultra Light</div>
+                    <div class="color-name">.bg--primary-ultra-light</div>
+                </div>
+                <div class="color-swatch bg--primary-light text--white">
+                    <div>Light</div>
+                    <div class="color-name">.bg--primary-light</div>
+                </div>
+                <div class="color-swatch bg--primary text--white">
+                    <div>Base</div>
+                    <div class="color-name">.bg--primary</div>
+                </div>
+                <div class="color-swatch bg--primary-dark text--white">
+                    <div>Dark</div>
+                    <div class="color-name">.bg--primary-dark</div>
+                </div>
+                <div class="color-swatch bg--primary-ultra-dark text--white">
+                    <div>Ultra Dark</div>
+                    <div class="color-name">.bg--primary-ultra-dark</div>
+                </div>
+            </div>
+
+            <h3 class="text--h3">Transparency Variations</h3>
+            <div style="background: var(--base); padding: 2rem; border-radius: var(--radius-m);">
+                <div class="sg-grid" style="grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));">
+                    <div class="color-swatch bg--primary-trans-10 text--primary-dark">
+                        <div>10%</div>
+                        <div class="color-name">.bg--primary-trans-10</div>
+                    </div>
+                    <div class="color-swatch bg--primary-trans-30 text--primary-dark">
+                        <div>30%</div>
+                        <div class="color-name">.bg--primary-trans-30</div>
+                    </div>
+                    <div class="color-swatch bg--primary-trans-50 text--white">
+                        <div>50%</div>
+                        <div class="color-name">.bg--primary-trans-50</div>
+                    </div>
+                    <div class="color-swatch bg--primary-trans-70 text--white">
+                        <div>70%</div>
+                        <div class="color-name">.bg--primary-trans-70</div>
+                    </div>
+                    <div class="color-swatch bg--primary-trans-90 text--white">
+                        <div>90%</div>
+                        <div class="color-name">.bg--primary-trans-90</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text--h3">Contextual Colors</h3>
+            <div class="sg-grid" style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));">
+                <div class="color-swatch bg--success text--white">
+                    <div>Success</div>
+                    <div class="color-name">.bg--success<br>#10b981</div>
+                </div>
+                <div class="color-swatch bg--warning text--white">
+                    <div>Warning</div>
+                    <div class="color-name">.bg--warning<br>#f59e0b</div>
+                </div>
+                <div class="color-swatch bg--danger text--white">
+                    <div>Danger</div>
+                    <div class="color-name">.bg--danger<br>#ef4444</div>
+                </div>
+                <div class="color-swatch bg--info text--white">
+                    <div>Info</div>
+                    <div class="color-name">.bg--info<br>#3b82f6</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Typography -->
+        <section id="typography" class="sg-section">
+            <h2 class="text--h2 text--primary">Typography System</h2>
+            <p class="text--l text--base-light">Fluid, responsive typography with mathematical precision and T-shirt sizing.</p>
+
+            <h3 class="text--h3">Heading Scale</h3>
+            <div class="type-specimen">
+                <h1 class="margin--0">Heading 1 - Main Page Title</h1>
+                <p class="text--s text--base-light margin--0">font-size: var(--h1) | .text--h1</p>
+            </div>
+            <div class="type-specimen">
+                <h2 class="margin--0">Heading 2 - Section Title</h2>
+                <p class="text--s text--base-light margin--0">font-size: var(--h2) | .text--h2</p>
+            </div>
+            <div class="type-specimen">
+                <h3 class="margin--0">Heading 3 - Subsection Title</h3>
+                <p class="text--s text--base-light margin--0">font-size: var(--h3) | .text--h3</p>
+            </div>
+            <div class="type-specimen">
+                <h4 class="margin--0">Heading 4 - Component Title</h4>
+                <p class="text--s text--base-light margin--0">font-size: var(--h4) | .text--h4</p>
+            </div>
+            <div class="type-specimen">
+                <h5 class="margin--0">Heading 5 - Small Section</h5>
+                <p class="text--s text--base-light margin--0">font-size: var(--h5) | .text--h5</p>
+            </div>
+            <div class="type-specimen">
+                <h6 class="margin--0">Heading 6 - Smallest Heading</h6>
+                <p class="text--s text--base-light margin--0">font-size: var(--h6) | .text--h6</p>
+            </div>
+
+            <h3 class="text--h3">Text Sizes - T-Shirt Scale</h3>
+            <div class="type-specimen">
+                <p class="text--xs margin--0">Extra Small Text (.text--xs) - Perfect for captions, disclaimers, and fine print</p>
+            </div>
+            <div class="type-specimen">
+                <p class="text--s margin--0">Small Text (.text--s) - Great for secondary information, labels, and metadata</p>
+            </div>
+            <div class="type-specimen">
+                <p class="text--m margin--0">Medium Text (.text--m) - Default body text size for optimal readability</p>
+            </div>
+            <div class="type-specimen">
+                <p class="text--l margin--0">Large Text (.text--l) - Perfect for emphasis, introductions, and lead paragraphs</p>
+            </div>
+            <div class="type-specimen">
+                <p class="text--xl margin--0">Extra Large Text (.text--xl) - Strong emphasis and feature highlights</p>
+            </div>
+            <div class="type-specimen">
+                <p class="text--xxl margin--0">Double Extra Large Text (.text--xxl) - Maximum impact statements</p>
+            </div>
+
+            <h3 class="text--h3">Body Text & Styles</h3>
+            <div class="type-specimen">
+                <p class="margin-bottom--m">This is default body text using the framework's base typography settings. It demonstrates comfortable line height, optimal character spacing, and readable font sizing that scales fluidly across devices.</p>
+                <p class="text--bold margin-bottom--m">This paragraph uses <strong>.text--bold</strong> for important emphasis and calls attention to key information.</p>
+                <p class="text--italic margin-bottom--m"><em>This paragraph uses .text--italic</em> for subtle emphasis, quotes, or stylistic distinction.</p>
+                <p class="text--uppercase margin-bottom--m">This paragraph uses .text--uppercase for headlines and emphasis.</p>
+                <p class="text--underline margin-bottom--0">This paragraph uses .text--underline for links and highlighted content.</p>
+            </div>
+
+            <h3 class="text--h3">Font Families</h3>
+            <div class="type-specimen">
+                <p class="font--primary margin-bottom--s">Primary Font Family - System UI stack for optimal performance and native feel across platforms (.font--primary)</p>
+                <p class="font--secondary margin-bottom--s">Secondary Font Family - Serif stack for traditional, elegant typography (.font--secondary)</p>
+                <p class="font--mono margin-bottom--0">Monospace Font Family - Code and technical content (.font--mono)</p>
+            </div>
+        </section>
+
+        <!-- Spacing & Layout -->
+        <section id="spacing" class="sg-section">
+            <h2 class="text--h2 text--primary">Spacing & Layout System</h2>
+            <p class="text--l text--base-light">Mathematical spacing based on golden ratio with contextual gap utilities.</p>
+
+            <h3 class="text--h3">Spacing Scale - T-Shirt Sizing</h3>
+            <div class="sg-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <div class="spacing-demo padding--xs">XS Padding (.padding--xs)</div>
+                <div class="spacing-demo padding--s">S Padding (.padding--s)</div>
+                <div class="spacing-demo padding--m">M Padding (.padding--m)</div>
+                <div class="spacing-demo padding--l">L Padding (.padding--l)</div>
+                <div class="spacing-demo padding--xl">XL Padding (.padding--xl)</div>
+                <div class="spacing-demo padding--xxl">XXL Padding (.padding--xxl)</div>
+            </div>
+
+            <h3 class="text--h3">Grid System</h3>
+            <h4 class="text--h4">2 Column Grid (.grid--2)</h4>
+            <div class="grid--2 margin-bottom--l">
+                <div class="grid-demo">Grid Item 1</div>
+                <div class="grid-demo">Grid Item 2</div>
+            </div>
+
+            <h4 class="text--h4">3 Column Grid (.grid--3)</h4>
+            <div class="grid--3 margin-bottom--l">
+                <div class="grid-demo">Grid Item 1</div>
+                <div class="grid-demo">Grid Item 2</div>
+                <div class="grid-demo">Grid Item 3</div>
+            </div>
+
+            <h4 class="text--h4">Auto-Responsive Grid (.grid--auto-3)</h4>
+            <p class="text--s text--base-light">Automatically adjusts column count based on available space:</p>
+            <div class="grid--auto-3">
+                <div class="grid-demo">Auto Item 1</div>
+                <div class="grid-demo">Auto Item 2</div>
+                <div class="grid-demo">Auto Item 3</div>
+                <div class="grid-demo">Auto Item 4</div>
+                <div class="grid-demo">Auto Item 5</div>
+                <div class="grid-demo">Auto Item 6</div>
+            </div>
+
+            <h3 class="text--h3">Contextual Gaps</h3>
+            <div class="sg-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                <div>
+                    <h4 class="text--h5">Content Gap (.content-gap--m)</h4>
+                    <div class="flex flex--col content-gap--m bg--neutral-ultra-light padding--m border-radius--m">
+                        <div class="bg--white padding--s border-radius--s">Content Block 1</div>
+                        <div class="bg--white padding--s border-radius--s">Content Block 2</div>
+                        <div class="bg--white padding--s border-radius--s">Content Block 3</div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text--h5">Grid Gap (.grid-gap--l)</h4>
+                    <div class="grid--2 grid-gap--l bg--neutral-ultra-light padding--m border-radius--m">
+                        <div class="bg--white padding--s border-radius--s text--center">Grid 1</div>
+                        <div class="bg--white padding--s border-radius--s text--center">Grid 2</div>
+                        <div class="bg--white padding--s border-radius--s text--center">Grid 3</div>
+                        <div class="bg--white padding--s border-radius--s text--center">Grid 4</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Components -->
+        <section id="components" class="sg-section">
+            <h2 class="text--h2 text--primary">Component Library</h2>
+            <p class="text--l text--base-light">Real-world components showcasing framework capabilities with various layouts and shadows.</p>
+
+            <h3 class="text--h3">Content Cards - 3 Column Grid</h3>
+            <div class="grid--3">
+                <article class="demo-card shadow--m hover:shadow--l">
+                    <div class="demo-image">
+                        <span>Featured Image</span>
+                    </div>
+                    <div class="demo-content">
+                        <h3 class="text--h4 margin-top--0 margin-bottom--s">Card Title One</h3>
+                        <p class="text--s text--base-light margin-bottom--m">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                        <a href="#" class="text--primary text--semibold text--underline">Read More →</a>
+                    </div>
+                </article>
+                
+                <article class="demo-card shadow--m hover:shadow--l">
+                    <div class="demo-image">
+                        <span>Featured Image</span>
+                    </div>
+                    <div class="demo-content">
+                        <h3 class="text--h4 margin-top--0 margin-bottom--s">Card Title Two</h3>
+                        <p class="text--s text--base-light margin-bottom--m">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+                        <a href="#" class="text--primary text--semibold text--underline">Read More →</a>
+                    </div>
+                </article>
+                
+                <article class="demo-card shadow--m hover:shadow--l">
+                    <div class="demo-image">
+                        <span>Featured Image</span>
+                    </div>
+                    <div class="demo-content">
+                        <h3 class="text--h4 margin-top--0 margin-bottom--s">Card Title Three</h3>
+                        <p class="text--s text--base-light margin-bottom--m">Sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium.</p>
+                        <a href="#" class="text--primary text--semibold text--underline">Read More →</a>
+                    </div>
+                </article>
+            </div>
+
+            <h3 class="text--h3">Content Cards - 2 Column Grid</h3>
+            <div class="grid--2">
+                <article class="demo-card shadow--l hover:shadow--xl">
+                    <div class="demo-image" style="height: 250px;">
+                        <span>Hero Image</span>
+                    </div>
+                    <div class="demo-content">
+                        <h3 class="text--h3 margin-top--0 margin-bottom--s">Featured Article</h3>
+                        <p class="text--m text--base-light margin-bottom--m">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <div class="flex flex--justify-between flex--items-center">
+                            <span class="text--s text--base-light">March 15, 2024</span>
+                            <a href="#" class="text--primary text--semibold text--underline">Continue Reading →</a>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="demo-card shadow--l hover:shadow--xl">
+                    <div class="demo-image" style="height: 250px;">
+                        <span>Hero Image</span>
+                    </div>
+                    <div class="demo-content">
+                        <h3 class="text--h3 margin-top--0 margin-bottom--s">Design Article</h3>
+                        <p class="text--m text--base-light margin-bottom--m">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <div class="flex flex--justify-between flex--items-center">
+                            <span class="text--s text--base-light">March 12, 2024</span>
+                            <a href="#" class="text--primary text--semibold text--underline">Continue Reading →</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <h3 class="text--h3">Content Cards - Auto-Responsive Grid</h3>
+            <p class="text--s text--base-light margin-bottom--m">These cards automatically adjust their layout based on screen size without media queries:</p>
+            <div class="layout--card-grid">
+                <article class="demo-card shadow--s hover:shadow--m">
+                    <div class="demo-content">
+                        <h4 class="text--h5 margin-top--0 margin-bottom--s">Quick Card 1</h4>
+                        <p class="text--s text--base-light margin-bottom--m">Short description with auto-responsive behavior. Resize your browser to see the magic!</p>
+                        <span class="text--xs text--accent text--uppercase text--bold">Auto Layout</span>
+                    </div>
+                </article>
+                
+                <article class="demo-card shadow--s hover:shadow--m">
+                    <div class="demo-content">
+                        <h4 class="text--h5 margin-top--0 margin-bottom--s">Quick Card 2</h4>
+                        <p class="text--s text--base-light margin-bottom--m">Another card demonstrating the responsive grid system in action.</p>
+                        <span class="text--xs text--success text--uppercase text--bold">Responsive</span>
+                    </div>
+                </article>
+                
+                <article class="demo-card shadow--s hover:shadow--m">
+                    <div class="demo-content">
+                        <h4 class="text--h5 margin-top--0 margin-bottom--s">Quick Card 3</h4>
+                        <p class="text--s text--base-light margin-bottom--m">Framework handles all the complexity of responsive design automatically.</p>
+                        <span class="text--xs text--info text--uppercase text--bold">Framework</span>
+                    </div>
+                </article>
+                
+                <article class="demo-card shadow--s hover:shadow--m">
+                    <div class="demo-content">
+                        <h4 class="text--h5 margin-top--0 margin-bottom--s">Quick Card 4</h4>
+                        <p class="text--s text--base-light margin-bottom--m">No media queries needed for this responsive card layout system.</p>
+                        <span class="text--xs text--warning text--uppercase text--bold">No Media Queries</span>
+                    </div>
+                </article>
+                
+                <article class="demo-card shadow--s hover:shadow--m">
+                    <div class="demo-content">
+                        <h4 class="text--h5 margin-top--0 margin-bottom--s">Quick Card 5</h4>
+                        <p class="text--s text--base-light margin-bottom--m">Pure CSS Grid magic with mathematical precision and consistent spacing.</p>
+                        <span class="text--xs text--danger text--uppercase text--bold">CSS Grid</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Effects & Shadows -->
+        <section id="effects" class="sg-section">
+            <h2 class="text--h2 text--primary">Effects & Shadows</h2>
+            <p class="text--l text--base-light">Comprehensive shadow system with hover effects and visual depth.</p>
+
+            <h3 class="text--h3">Shadow Scale</h3>
+            <div class="sg-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <div class="shadow-demo shadow--s">
+                    Small Shadow<br>
+                    <span class="text--s text--base-light">.shadow--s</span>
+                </div>
+                <div class="shadow-demo shadow--m">
+                    Medium Shadow<br>
+                    <span class="text--s text--base-light">.shadow--m</span>
+                </div>
+                <div class="shadow-demo shadow--l">
+                    Large Shadow<br>
+                    <span class="text--s text--base-light">.shadow--l</span>
+                </div>
+                <div class="shadow-demo shadow--xl">
+                    Extra Large Shadow<br>
+                    <span class="text--s text--base-light">.shadow--xl</span>
+                </div>
+            </div>
+
+            <h3 class="text--h3">Colored Shadows</h3>
+            <div class="sg-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+                <div class="shadow-demo shadow--primary">
+                    Primary Shadow<br>
+                    <span class="text--s text--primary-dark">.shadow--primary</span>
+                </div>
+                <div class="shadow-demo shadow--accent">
+                    Accent Shadow<br>
+                    <span class="text--s text--accent-dark">.shadow--accent</span>
+                </div>
+                <div class="shadow-demo shadow--success">
+                    Success Shadow<br>
+                    <span class="text--s text--success-dark">.shadow--success</span>
+                </div>
+                <div class="shadow-demo shadow--warning">
+                    Warning Shadow<br>
+                    <span class="text--s text--warning-dark">.shadow--warning</span>
+                </div>
+            </div>
+
+            <h3 class="text--h3">Interactive Shadow Effects</h3>
+            <div class="sg-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                <div class="shadow-demo shadow--s hover:shadow--m transition">
+                    Hover to Grow<br>
+                    <span class="text--s text--base-light">.hover:shadow--m</span>
+                </div>
+                <div class="shadow-demo shadow--m hover:shadow--xl transition">
+                    Hover for Drama<br>
+                    <span class="text--s text--base-light">.hover:shadow--xl</span>
+                </div>
+                <div class="shadow-demo shadow--s hover:translate-y--2 transition">
+                    Hover to Lift<br>
+                    <span class="text--s text--base-light">.hover:translate-y--2</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CSS Variables -->
+        <section id="variables" class="sg-section">
+            <h2 class="text--h2 text--primary">CSS Variables Reference</h2>
+            <p class="text--l text--base-light">All framework values exposed as CSS custom properties for maximum flexibility.</p>
+
+            <div class="sg-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                <div>
+                    <h3 class="text--h4">Color Variables</h3>
+                    <div class="variable-list">
+                        /* Brand Colors */<br>
+                        --primary, --primary-light, --primary-dark<br>
+                        --secondary, --secondary-hover<br>
+                        --accent, --accent-ultra-light<br>
+                        --base, --shade, --neutral<br><br>
+                        
+                        /* Transparency Variants */<br>
+                        --primary-trans-10 through --primary-trans-90<br><br>
+                        
+                        /* Contextual Colors */<br>
+                        --success, --warning, --danger, --info
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text--h4">Typography Variables</h3>
+                    <div class="variable-list">
+                        /* Headings */<br>
+                        --h1, --h2, --h3, --h4, --h5, --h6<br><br>
+                        
+                        /* Text Sizes */<br>
+                        --text-xs, --text-s, --text-m<br>
+                        --text-l, --text-xl, --text-xxl<br><br>
+                        
+                        /* Font Families */<br>
+                        --font-primary, --font-secondary, --font-mono<br><br>
+                        
+                        /* Font Weights */<br>
+                        --font-weight-light through --font-weight-bold
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text--h4">Spacing Variables</h3>
+                    <div class="variable-list">
+                        /* Component Spacing */<br>
+                        --space-xs, --space-s, --space-m<br>
+                        --space-l, --space-xl, --space-xxl<br><br>
+                        
+                        /* Contextual Gaps */<br>
+                        --content-gap, --grid-gap, --container-gap<br><br>
+                        
+                        /* Section Spacing */<br>
+                        --section-space-s through --section-space-xxl
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text--h4">Layout Variables</h3>
+                    <div class="variable-list">
+                        /* Grid Templates */<br>
+                        --grid-1 through --grid-12<br>
+                        --grid-auto-1 through --grid-auto-6<br><br>
+                        
+                        /* Container Widths */<br>
+                        --content-width, --content-width-safe<br><br>
+                        
+                        /* Aspect Ratios */<br>
+                        --aspect-square, --aspect-video<br>
+                        --aspect-photo, --aspect-golden
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text--h4">Effects Variables</h3>
+                    <div class="variable-list">
+                        /* Shadows */<br>
+                        --shadow-s, --shadow-m, --shadow-l, --shadow-xl<br>
+                        --shadow-primary, --shadow-accent<br><br>
+                        
+                        /* Border Radius */<br>
+                        --radius-s, --radius-m, --radius-l, --radius-xl<br><br>
+                        
+                        /* Transitions */<br>
+                        --transition, --transition-fast, --transition-slow
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text--h4">Usage Examples</h3>
+                    <div class="variable-list">
+                        /* Direct Usage */<br>
+                        background: var(--primary-light);<br>
+                        padding: var(--space-l);<br>
+                        font-size: var(--text-xl);<br><br>
+                        
+                        /* With calc() */<br>
+                        gap: calc(var(--grid-gap) * 2);<br>
+                        margin: calc(var(--space-m) * -1);<br><br>
+                        
+                        /* Fallbacks */<br>
+                        color: var(--primary, #0066cc);
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text--center padding--xl bg--neutral-ultra-light border-radius--l margin-top--xl">
+            <h2 class="text--h3 text--success margin-bottom--m">🎉 Framework Complete!</h2>
+            <p class="text--l text--base-light margin-bottom--m">
+                8,334+ lines of production-ready CSS following Automatic.css principles
+            </p>
+            <div class="flex flex--justify-center flex--wrap gap--m">
+                <span class="bg--success-ultra-light text--success-dark padding--s border-radius--s text--s text--bold">
+                    ✓ Mathematical Precision
+                </span>
+                <span class="bg--primary-ultra-light text--primary-dark padding--s border-radius--s text--s text--bold">
+                    ✓ Variable-First Architecture
+                </span>
+                <span class="bg--accent-ultra-light text--accent-dark padding--s border-radius--s text--s text--bold">
+                    ✓ Contextual Design
+                </span>
+                <span class="bg--info-ultra-light text--info-dark padding--s border-radius--s text--s text--bold">
+                    ✓ Zero Dependencies
+                </span>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
