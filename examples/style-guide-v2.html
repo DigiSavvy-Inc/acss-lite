@@ -340,7 +340,7 @@
                 <li><a href="#typography">Typography</a></li>
                 <li><a href="#spacing">Spacing (.space-- utilities)</a></li>
                 <li><a href="#components">Components</a></li>
-                <li><a href="#widths">Width System</a></li>
+                <li><a href="#widths">Width & Content-Grid Systems</a></li>
                 <li><a href="#effects">Effects & Shadows</a></li>
                 <li><a href="#variables">CSS Variables</a></li>
             </ul>
@@ -695,8 +695,8 @@
 
         <!-- Width System -->
         <section id="widths" class="sg-section">
-            <h2 class="text--h2 text--primary">Width System</h2>
-            <p class="text--l text--base-light">Visual representation of width utilities with their respective variables.</p>
+            <h2 class="text--h2 text--primary">Width & Content-Grid Systems</h2>
+            <p class="text--l text--base-light">Visual representation of width utilities and ACSS content-grid architecture.</p>
 
             <h3 class="text--h3">Percentage Widths</h3>
             <div style="background: var(--neutral-ultra-light); padding: var(--space-l); border-radius: var(--radius-m);">
@@ -792,6 +792,79 @@
                     <p class="text--xs text--info-dark margin--0">
                         Content-grid uses named grid lines and sophisticated minmax() calculations to provide precise control over content width and breakout behavior. Content automatically centers while breakout elements can expand to feature or full-width areas.
                     </p>
+                </div>
+            </div>
+
+            <h3 class="text--h3">Visual Content-Grid Demonstration</h3>
+            <p class="text--s text--base-light">Interactive boxes showing how content spans different grid areas:</p>
+            
+            <!-- Simulated content-grid container -->
+            <div style="background: var(--neutral-ultra-light); border-radius: var(--radius-m); margin-top: var(--space-l); overflow: hidden; position: relative;">
+                <!-- Grid area labels -->
+                <div style="display: flex; font-size: 10px; font-family: var(--font-mono); color: var(--base-light); background: var(--shade-trans-10); padding: 2px 0; text-align: center;">
+                    <div style="flex: 1; padding: 2px; border-right: 1px solid var(--border-color-light);">gutter</div>
+                    <div style="width: 50px; padding: 2px; border-right: 1px solid var(--border-color-light);">feature-max</div>
+                    <div style="width: 50px; padding: 2px; border-right: 1px solid var(--border-color-light);">feature</div>
+                    <div style="width: min(1140px, calc(100% - 4rem)); padding: 2px; border-right: 1px solid var(--border-color-light);">content</div>
+                    <div style="width: 50px; padding: 2px; border-right: 1px solid var(--border-color-light);">feature</div>
+                    <div style="width: 50px; padding: 2px; border-right: 1px solid var(--border-color-light);">feature-max</div>
+                    <div style="flex: 1; padding: 2px;">gutter</div>
+                </div>
+                
+                <!-- Content examples -->
+                <div style="padding: var(--space-l); display: flex; flex-direction: column; gap: var(--space-m);">
+                    
+                    <!-- Default content (content area) -->
+                    <div>
+                        <h5 class="text--h6 margin-bottom--xs">Default Content (no class)</h5>
+                        <div style="max-width: min(1140px, calc(100% - 4rem)); margin: 0 auto; background: var(--primary-trans-20); padding: var(--space-s); border-radius: var(--radius-s); text-align: center; border: 2px solid var(--primary);">
+                            <span class="text--s font--mono">Regular content spans content area only</span>
+                        </div>
+                    </div>
+                    
+                    <!-- .content--feature -->
+                    <div>
+                        <h5 class="text--h6 margin-bottom--xs">.content--feature</h5>
+                        <div style="max-width: calc(min(1140px, calc(100% - 4rem)) + 100px); margin: 0 auto; background: var(--accent-trans-20); padding: var(--space-s); border-radius: var(--radius-s); text-align: center; border: 2px solid var(--accent);">
+                            <span class="text--s font--mono">Feature content spans content + feature areas</span>
+                        </div>
+                    </div>
+                    
+                    <!-- .content--feature-max -->
+                    <div>
+                        <h5 class="text--h6 margin-bottom--xs">.content--feature-max</h5>
+                        <div style="max-width: calc(min(1140px, calc(100% - 4rem)) + 200px); margin: 0 auto; background: var(--warning-trans-20); padding: var(--space-s); border-radius: var(--radius-s); text-align: center; border: 2px solid var(--warning);">
+                            <span class="text--s font--mono">Feature-max spans content + feature + feature-max</span>
+                        </div>
+                    </div>
+                    
+                    <!-- .content--full -->
+                    <div>
+                        <h5 class="text--h6 margin-bottom--xs">.content--full</h5>
+                        <div style="width: 100%; background: var(--danger-trans-20); padding: var(--space-s); border-radius: var(--radius-s); text-align: center; border: 2px solid var(--danger);">
+                            <span class="text--s font--mono">Full content spans entire width (edge to edge)</span>
+                        </div>
+                    </div>
+                    
+                    <!-- .content--full-safe -->
+                    <div>
+                        <h5 class="text--h6 margin-bottom--xs">.content--full-safe</h5>
+                        <div style="width: calc(100% - 2rem); margin: 0 1rem; background: var(--success-trans-20); padding: var(--space-s); border-radius: var(--radius-s); text-align: center; border: 2px solid var(--success);">
+                            <span class="text--s font--mono">Full-safe spans full width but maintains gutter padding</span>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <!-- Grid visualization overlay -->
+                <div style="position: absolute; top: 20px; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 1;">
+                    <!-- Vertical grid lines -->
+                    <div style="position: absolute; left: 1rem; top: 0; bottom: 0; width: 1px; background: var(--primary-trans-30);"></div>
+                    <div style="position: absolute; left: calc(1rem + 50px); top: 0; bottom: 0; width: 1px; background: var(--accent-trans-30);"></div>
+                    <div style="position: absolute; left: calc(1rem + 100px); top: 0; bottom: 0; width: 1px; background: var(--warning-trans-30);"></div>
+                    <div style="position: absolute; right: calc(1rem + 100px); top: 0; bottom: 0; width: 1px; background: var(--warning-trans-30);"></div>
+                    <div style="position: absolute; right: calc(1rem + 50px); top: 0; bottom: 0; width: 1px; background: var(--accent-trans-30);"></div>
+                    <div style="position: absolute; right: 1rem; top: 0; bottom: 0; width: 1px; background: var(--primary-trans-30);"></div>
                 </div>
             </div>
         </section>
