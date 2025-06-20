@@ -98,6 +98,47 @@
             );
         }
         
+        
+        .color-wheel.neutral {
+            background: conic-gradient(
+                var(--neutral-ultra-light) calc(0 * var(--color-size)) calc(1 * var(--color-size)),
+                var(--neutral-light) calc(1 * var(--color-size)) calc(2 * var(--color-size)),
+                var(--neutral) calc(2 * var(--color-size)) calc(3 * var(--color-size)),
+                var(--neutral-dark) calc(3 * var(--color-size)) calc(4 * var(--color-size)),
+                var(--neutral-ultra-dark) calc(4 * var(--color-size)) calc(5 * var(--color-size))
+            );
+        }
+        
+        .color-wheel.info {
+            background: conic-gradient(
+                var(--info-ultra-light) calc(0 * var(--color-size)) calc(1 * var(--color-size)),
+                var(--info-light) calc(1 * var(--color-size)) calc(2 * var(--color-size)),
+                var(--info) calc(2 * var(--color-size)) calc(3 * var(--color-size)),
+                var(--info-dark) calc(3 * var(--color-size)) calc(4 * var(--color-size)),
+                var(--info-ultra-dark) calc(4 * var(--color-size)) calc(5 * var(--color-size))
+            );
+        }
+        
+        .color-wheel.warning {
+            background: conic-gradient(
+                var(--warning-ultra-light) calc(0 * var(--color-size)) calc(1 * var(--color-size)),
+                var(--warning-light) calc(1 * var(--color-size)) calc(2 * var(--color-size)),
+                var(--warning) calc(2 * var(--color-size)) calc(3 * var(--color-size)),
+                var(--warning-dark) calc(3 * var(--color-size)) calc(4 * var(--color-size)),
+                var(--warning-ultra-dark) calc(4 * var(--color-size)) calc(5 * var(--color-size))
+            );
+        }
+        
+        .color-wheel.danger {
+            background: conic-gradient(
+                var(--danger-ultra-light) calc(0 * var(--color-size)) calc(1 * var(--color-size)),
+                var(--danger-light) calc(1 * var(--color-size)) calc(2 * var(--color-size)),
+                var(--danger) calc(2 * var(--color-size)) calc(3 * var(--color-size)),
+                var(--danger-dark) calc(3 * var(--color-size)) calc(4 * var(--color-size)),
+                var(--danger-ultra-dark) calc(4 * var(--color-size)) calc(5 * var(--color-size))
+            );
+        }
+        
         .color-wheel::after {
             content: "";
             position: absolute;
@@ -136,7 +177,7 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%) rotate(calc(180deg / var(--num-colors)));
             width: 60px;
             height: 60px;
             border-radius: 50%;
@@ -413,6 +454,113 @@
                     <div class="color-info">
                         <h3 class="text--h5 margin--0">Success Color</h3>
                         <p class="text--s text--base-light">.bg--success, .text--success</p>
+                    </div>
+                </div>
+
+                <!-- Neutral Color Wheel -->
+                <div>
+                    <div class="color-wheel neutral">
+                        <div class="color-segment" 
+                             onmouseover="showTooltip(event, '--neutral-ultra-light', '#fafbfc')"
+                             onmouseout="hideTooltip()"></div>
+                        <div class="color-segment" 
+                             onmouseover="showTooltip(event, '--neutral-light', '#eff2f7')"
+                             onmouseout="hideTooltip()"></div>
+                        <div class="color-segment" 
+                             onmouseover="showTooltip(event, '--neutral', '#e2e8f0')"
+                             onmouseout="hideTooltip()"></div>
+                        <div class="color-segment" 
+                             onmouseover="showTooltip(event, '--neutral-dark', '#95ab88')"
+                             onmouseout="hideTooltip()"></div>
+                        <div class="color-segment" 
+                             onmouseover="showTooltip(event, '--neutral-ultra-dark', '#4f6f99')"
+                             onmouseout="hideTooltip()"></div>
+                        <div class="wheel-center" style="background: var(--neutral); color: var(--base);">Neutral</div>
+                    </div>
+                    <div class="color-info">
+                        <h3 class="text--h5 margin--0">Neutral Color</h3>
+                        <p class="text--s text--base-light">.bg--neutral, .text--neutral</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text--h3">Status Colors</h3>
+            <div class="color-wheels">
+                <!-- Info Color Wheel -->
+                <div>
+                    <div class="color-wheel info">
+                        <div class="color-segment" 
+                             onmouseover="showTooltip(event, '--info-ultra-light', '#e1ecfd')"
+                             onmouseout="hideTooltip()"></div>
+                        <div class="color-segment" 
+                             onmouseover="showTooltip(event, '--info-light', '#93bafd')"
+                             onmouseout="hideTooltip()"></div>
+                        <div class="color-segment" 
+                             onmouseover="showTooltip(event, '--info', '#3b82f6')"
+                             onmouseout="hideTooltip()"></div>
+                        <div class="color-segment" 
+                             onmouseover="showTooltip(event, '--info-dark', '#0a59db')"
+                             onmouseout="hideTooltip()"></div>
+                        <div class="color-segment" 
+                             onmouseover="showTooltip(event, '--info-ultra-dark', '#063b91')"
+                             onmouseout="hideTooltip()"></div>
+                        <div class="wheel-center" style="background: var(--info);">Info</div>
+                    </div>
+                    <div class="color-info">
+                        <h3 class="text--h5 margin--0">Info Color</h3>
+                        <p class="text--s text--base-light">.bg--info, .text--info</p>
+                    </div>
+                </div>
+
+                <!-- Warning Color Wheel -->
+                <div>
+                    <div class="color-wheel warning">
+                        <div class="color-segment" 
+                             onmouseover="showTooltip(event, '--warning-ultra-light', '#fdf0da')"
+                             onmouseout="hideTooltip()"></div>
+                        <div class="color-segment" 
+                             onmouseover="showTooltip(event, '--warning-light', '#f9c979')"
+                             onmouseout="hideTooltip()"></div>
+                        <div class="color-segment" 
+                             onmouseover="showTooltip(event, '--warning', '#f59e0b')"
+                             onmouseout="hideTooltip()"></div>
+                        <div class="color-segment" 
+                             onmouseover="showTooltip(event, '--warning-dark', '#b8770b')"
+                             onmouseout="hideTooltip()"></div>
+                        <div class="color-segment" 
+                             onmouseover="showTooltip(event, '--warning-ultra-dark', '#7b4f05')"
+                             onmouseout="hideTooltip()"></div>
+                        <div class="wheel-center" style="background: var(--warning);">Warning</div>
+                    </div>
+                    <div class="color-info">
+                        <h3 class="text--h5 margin--0">Warning Color</h3>
+                        <p class="text--s text--base-light">.bg--warning, .text--warning</p>
+                    </div>
+                </div>
+
+                <!-- Danger Color Wheel -->
+                <div>
+                    <div class="color-wheel danger">
+                        <div class="color-segment" 
+                             onmouseover="showTooltip(event, '--danger-ultra-light', '#fce3e3')"
+                             onmouseout="hideTooltip()"></div>
+                        <div class="color-segment" 
+                             onmouseover="showTooltip(event, '--danger-light', '#f69898')"
+                             onmouseout="hideTooltip()"></div>
+                        <div class="color-segment" 
+                             onmouseover="showTooltip(event, '--danger', '#ef4444')"
+                             onmouseout="hideTooltip()"></div>
+                        <div class="color-segment" 
+                             onmouseover="showTooltip(event, '--danger-dark', '#d41212')"
+                             onmouseout="hideTooltip()"></div>
+                        <div class="color-segment" 
+                             onmouseover="showTooltip(event, '--danger-ultra-dark', '#8d0c0c')"
+                             onmouseout="hideTooltip()"></div>
+                        <div class="wheel-center" style="background: var(--danger);">Danger</div>
+                    </div>
+                    <div class="color-info">
+                        <h3 class="text--h5 margin--0">Danger Color</h3>
+                        <p class="text--s text--base-light">.bg--danger, .text--danger</p>
                     </div>
                 </div>
             </div>
@@ -709,8 +857,10 @@
             // Convert hex to HSL for display
             const hsl = hexToHsl(hexValue);
             tooltip.innerHTML = `${variable}<br>HEX: ${hexValue}<br>HSL: ${hsl}`;
-            tooltip.style.left = event.pageX + 'px';
-            tooltip.style.top = (event.pageY - 80) + 'px';
+            
+            // Position tooltip to the right of cursor
+            tooltip.style.left = (event.clientX + 15) + 'px';
+            tooltip.style.top = (event.clientY - 40) + 'px';
             tooltip.classList.add('show');
         }
         
