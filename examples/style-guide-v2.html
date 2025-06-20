@@ -59,8 +59,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            border-radius: 50%;
-            clip-path: polygon(50% 50%, 50% 0%, 85.4% 14.6%, 50% 50%);
+            clip-path: polygon(50% 50%, 50% 0%, 95.1% 30.9%, 50% 50%);
             transition: var(--transition);
         }
         
@@ -75,6 +74,23 @@
         .wheel-slice:nth-child(3) { transform: rotate(144deg); }
         .wheel-slice:nth-child(4) { transform: rotate(216deg); }
         .wheel-slice:nth-child(5) { transform: rotate(288deg); }
+        
+        /* Ensure no gaps between slices */
+        .wheel-slice {
+            clip-path: polygon(50% 50%, 50% 0%, 95.1% 30.9%, 50% 50%);
+        }
+        .wheel-slice:nth-child(2) {
+            clip-path: polygon(50% 50%, 95.1% 30.9%, 79.4% 79.4%, 50% 50%);
+        }
+        .wheel-slice:nth-child(3) {
+            clip-path: polygon(50% 50%, 79.4% 79.4%, 20.6% 79.4%, 50% 50%);
+        }
+        .wheel-slice:nth-child(4) {
+            clip-path: polygon(50% 50%, 20.6% 79.4%, 4.9% 30.9%, 50% 50%);
+        }
+        .wheel-slice:nth-child(5) {
+            clip-path: polygon(50% 50%, 4.9% 30.9%, 50% 0%, 50% 50%);
+        }
         
         .wheel-center {
             position: absolute;
@@ -243,6 +259,7 @@
                 <li><a href="#typography">Typography</a></li>
                 <li><a href="#spacing">Spacing (.space-- utilities)</a></li>
                 <li><a href="#components">Components</a></li>
+                <li><a href="#widths">Width System</a></li>
                 <li><a href="#effects">Effects & Shadows</a></li>
                 <li><a href="#variables">CSS Variables</a></li>
             </ul>
@@ -429,12 +446,12 @@
 
             <h3 class="text--h3">Space Scale - T-Shirt Sizing</h3>
             <div class="sg-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-                <div class="spacing-demo space--xs">XS Space (.space--xs)</div>
-                <div class="spacing-demo space--s">S Space (.space--s)</div>
-                <div class="spacing-demo space--m">M Space (.space--m)</div>
-                <div class="spacing-demo space--l">L Space (.space--l)</div>
-                <div class="spacing-demo space--xl">XL Space (.space--xl)</div>
-                <div class="spacing-demo space--xxl">XXL Space (.space--xxl)</div>
+                <div class="spacing-demo space--xs" style="min-height: 60px;">XS Space (.space--xs)</div>
+                <div class="spacing-demo space--s" style="min-height: 60px;">S Space (.space--s)</div>
+                <div class="spacing-demo space--m" style="min-height: 60px;">M Space (.space--m)</div>
+                <div class="spacing-demo space--l" style="min-height: 60px;">L Space (.space--l)</div>
+                <div class="spacing-demo space--xl" style="min-height: 60px;">XL Space (.space--xl)</div>
+                <div class="spacing-demo space--xxl" style="min-height: 60px;">XXL Space (.space--xxl)</div>
             </div>
 
             <div class="bg--info-ultra-light space--l border-radius--m margin-top--l">
@@ -485,6 +502,80 @@
                         <a href="#" class="text--primary text--semibold text--underline">Read More →</a>
                     </div>
                 </article>
+            </div>
+        </section>
+
+        <!-- Width System -->
+        <section id="widths" class="sg-section">
+            <h2 class="text--h2 text--primary">Width System</h2>
+            <p class="text--l text--base-light">Visual representation of width utilities with their respective variables.</p>
+
+            <h3 class="text--h3">Percentage Widths</h3>
+            <div style="background: var(--neutral-ultra-light); padding: var(--space-l); border-radius: var(--radius-m);">
+                <div style="margin-bottom: var(--space-s);">
+                    <div style="background: var(--primary); height: 20px; width: 25%; border-radius: var(--radius-s); margin-bottom: var(--space-xs);"></div>
+                    <span class="text--s text--base-light font--mono">.width--25 (25%)</span>
+                </div>
+                <div style="margin-bottom: var(--space-s);">
+                    <div style="background: var(--primary); height: 20px; width: 33.333%; border-radius: var(--radius-s); margin-bottom: var(--space-xs);"></div>
+                    <span class="text--s text--base-light font--mono">.width--33 (33.333%)</span>
+                </div>
+                <div style="margin-bottom: var(--space-s);">
+                    <div style="background: var(--primary); height: 20px; width: 50%; border-radius: var(--radius-s); margin-bottom: var(--space-xs);"></div>
+                    <span class="text--s text--base-light font--mono">.width--50 (50%)</span>
+                </div>
+                <div style="margin-bottom: var(--space-s);">
+                    <div style="background: var(--primary); height: 20px; width: 66.666%; border-radius: var(--radius-s); margin-bottom: var(--space-xs);"></div>
+                    <span class="text--s text--base-light font--mono">.width--66 (66.666%)</span>
+                </div>
+                <div style="margin-bottom: var(--space-s);">
+                    <div style="background: var(--primary); height: 20px; width: 75%; border-radius: var(--radius-s); margin-bottom: var(--space-xs);"></div>
+                    <span class="text--s text--base-light font--mono">.width--75 (75%)</span>
+                </div>
+                <div style="margin-bottom: var(--space-s);">
+                    <div style="background: var(--primary); height: 20px; width: 100%; border-radius: var(--radius-s); margin-bottom: var(--space-xs);"></div>
+                    <span class="text--s text--base-light font--mono">.width--100 (100%)</span>
+                </div>
+            </div>
+
+            <h3 class="text--h3">Container Widths</h3>
+            <div style="background: var(--neutral-ultra-light); padding: var(--space-l); border-radius: var(--radius-m); margin-top: var(--space-l);">
+                <div style="margin-bottom: var(--space-s);">
+                    <div style="background: var(--accent); height: 20px; width: 320px; max-width: 100%; border-radius: var(--radius-s); margin-bottom: var(--space-xs);"></div>
+                    <span class="text--s text--base-light font--mono">.width--xs (320px)</span>
+                </div>
+                <div style="margin-bottom: var(--space-s);">
+                    <div style="background: var(--accent); height: 20px; width: 480px; max-width: 100%; border-radius: var(--radius-s); margin-bottom: var(--space-xs);"></div>
+                    <span class="text--s text--base-light font--mono">.width--s (480px)</span>
+                </div>
+                <div style="margin-bottom: var(--space-s);">
+                    <div style="background: var(--accent); height: 20px; width: 640px; max-width: 100%; border-radius: var(--radius-s); margin-bottom: var(--space-xs);"></div>
+                    <span class="text--s text--base-light font--mono">.width--m (640px)</span>
+                </div>
+                <div style="margin-bottom: var(--space-s);">
+                    <div style="background: var(--accent); height: 20px; width: 768px; max-width: 100%; border-radius: var(--radius-s); margin-bottom: var(--space-xs);"></div>
+                    <span class="text--s text--base-light font--mono">.width--l (768px)</span>
+                </div>
+                <div style="margin-bottom: var(--space-s);">
+                    <div style="background: var(--accent); height: 20px; width: 1024px; max-width: 100%; border-radius: var(--radius-s); margin-bottom: var(--space-xs);"></div>
+                    <span class="text--s text--base-light font--mono">.width--xl (1024px)</span>
+                </div>
+                <div style="margin-bottom: var(--space-s);">
+                    <div style="background: var(--accent); height: 20px; width: 1200px; max-width: 100%; border-radius: var(--radius-s); margin-bottom: var(--space-xs);"></div>
+                    <span class="text--s text--base-light font--mono">.width--xxl (1200px)</span>
+                </div>
+            </div>
+
+            <h3 class="text--h3">Content Widths</h3>
+            <div style="background: var(--neutral-ultra-light); padding: var(--space-l); border-radius: var(--radius-m); margin-top: var(--space-l);">
+                <div style="margin-bottom: var(--space-s);">
+                    <div style="background: var(--success); height: 20px; width: 1140px; max-width: 100%; border-radius: var(--radius-s); margin-bottom: var(--space-xs);"></div>
+                    <span class="text--s text--base-light font--mono">.width--content (var(--content-width): 1140px)</span>
+                </div>
+                <div style="margin-bottom: var(--space-s);">
+                    <div style="background: var(--success); height: 20px; width: 1340px; max-width: 100%; border-radius: var(--radius-s); margin-bottom: var(--space-xs);"></div>
+                    <span class="text--s text--base-light font--mono">.width--content-wide (var(--content-width-wide): 1340px)</span>
+                </div>
             </div>
         </section>
 
@@ -573,12 +664,43 @@
     </div>
 
     <script>
-        function showTooltip(event, variable, value) {
+        function showTooltip(event, variable, hexValue) {
             const tooltip = document.getElementById('tooltip');
-            tooltip.innerHTML = `${variable}<br>${value}`;
+            // Convert hex to HSL for display
+            const hsl = hexToHsl(hexValue);
+            tooltip.innerHTML = `${variable}<br>HEX: ${hexValue}<br>HSL: ${hsl}`;
             tooltip.style.left = event.pageX + 'px';
-            tooltip.style.top = (event.pageY - 60) + 'px';
+            tooltip.style.top = (event.pageY - 80) + 'px';
             tooltip.classList.add('show');
+        }
+        
+        function hexToHsl(hex) {
+            // Remove # if present
+            hex = hex.replace('#', '');
+            
+            // Parse r, g, b values
+            const r = parseInt(hex.substr(0, 2), 16) / 255;
+            const g = parseInt(hex.substr(2, 2), 16) / 255;
+            const b = parseInt(hex.substr(4, 2), 16) / 255;
+            
+            const max = Math.max(r, g, b);
+            const min = Math.min(r, g, b);
+            let h, s, l = (max + min) / 2;
+            
+            if (max === min) {
+                h = s = 0; // achromatic
+            } else {
+                const d = max - min;
+                s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+                switch (max) {
+                    case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                    case g: h = (b - r) / d + 2; break;
+                    case b: h = (r - g) / d + 4; break;
+                }
+                h /= 6;
+            }
+            
+            return `${Math.round(h * 360)}°, ${Math.round(s * 100)}%, ${Math.round(l * 100)}%`;
         }
         
         function hideTooltip() {
