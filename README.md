@@ -1,0 +1,140 @@
+# Custom CSS Framework
+
+A lightweight, variable-driven CSS framework inspired by Automatic.css philosophy, focusing on consistency, mathematical precision, and contextual design patterns.
+
+## Core Principles
+
+- **Consistency over flexibility**: Limited, predictable options using T-shirt sizing (xs, s, m, l, xl, xxl)
+- **Variable-first architecture**: CSS custom properties as foundation
+- **Contextual design**: Purpose-built utilities for specific contexts
+- **Mathematical relationships**: Proportional scales using calc()
+- **Zero dependencies**: Works anywhere CSS works
+
+## Quick Start
+
+### 1. Drop-in CSS (Simplest)
+
+```html
+<!-- Add to your HTML head -->
+<link rel="stylesheet" href="path/to/framework.min.css">
+```
+
+### 2. WordPress Integration (No Plugin Required)
+
+```php
+// In your theme's functions.php
+function enqueue_custom_framework() {
+    wp_enqueue_style(
+        'custom-framework',
+        get_template_directory_uri() . '/assets/css/framework.min.css',
+        array(),
+        '1.0.0'
+    );
+}
+add_action('wp_enqueue_scripts', 'enqueue_custom_framework');
+```
+
+### 3. SCSS Customization
+
+```scss
+// Override default settings before importing
+$framework-config: (
+  'colors': (
+    'primary': #e74c3c,
+    'secondary': #3498db,
+  ),
+  'content-width': 1200px,
+);
+
+// Import framework
+@import 'path/to/framework/src/main';
+```
+
+## File Structure
+
+```
+dist/
+├── framework.css           # Complete framework (expanded)
+├── framework.min.css       # Complete framework (minified)
+├── framework-vars.css      # CSS variables only
+└── framework-utilities.css # Utility classes only
+```
+
+## Key Features
+
+### Color System
+- Automatic color variations (light, dark, hover)
+- HSL-based for calc() operations
+- Transparency variants
+- Contextual colors (success, warning, danger, info)
+
+### Typography System
+- Fluid, responsive sizing without media queries
+- Mathematical type scale
+- T-shirt sizing for consistency
+
+### Spacing System
+- Golden ratio-based scale
+- Contextual gaps (content-gap, grid-gap, container-gap)
+- Section spacing utilities
+
+### Layout System
+- CSS Grid templates
+- Auto-responsive grids
+- Container width management
+- Flexbox utilities
+
+## Variable Naming Convention
+
+```css
+/* Colors */
+--primary, --primary-light, --primary-hover
+
+/* Typography */
+--h1, --text-m, --text-line-height
+
+/* Spacing */
+--space-m, --section-space-l, --grid-gap
+
+/* Layout */
+--grid-3, --content-width
+```
+
+## Utility Class Convention
+
+```css
+/* Double-dash syntax */
+.text--xl
+.padding--m
+.grid--3
+
+/* T-shirt sizes only */
+.{property}--{xs|s|m|l|xl|xxl}
+```
+
+## Development
+
+```bash
+# Install dependencies
+npm install
+
+# Build all files
+npm run build
+
+# Watch for changes
+npm run watch
+
+# Development mode
+npm run dev
+```
+
+## Browser Support
+
+- Chrome (last 2 versions)
+- Firefox (last 2 versions)
+- Safari (last 2 versions)
+- Edge (last 2 versions)
+
+## License
+
+MIT License - feel free to use in personal and commercial projects.
