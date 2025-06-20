@@ -802,13 +802,13 @@
             <div style="background: var(--neutral-ultra-light); border-radius: var(--radius-m); margin-top: var(--space-l); overflow: hidden; position: relative;">
                 <!-- Grid area labels -->
                 <div style="display: flex; font-size: 10px; font-family: var(--font-mono); color: var(--base-light); background: var(--shade-trans-10); padding: 2px 0; text-align: center;">
-                    <div style="flex: 1; padding: 2px; border-right: 1px solid var(--border-color-light);">gutter</div>
-                    <div style="width: 50px; padding: 2px; border-right: 1px solid var(--border-color-light);">feature-max</div>
-                    <div style="width: 50px; padding: 2px; border-right: 1px solid var(--border-color-light);">feature</div>
-                    <div style="width: min(1140px, calc(100% - 4rem)); padding: 2px; border-right: 1px solid var(--border-color-light);">content</div>
-                    <div style="width: 50px; padding: 2px; border-right: 1px solid var(--border-color-light);">feature</div>
-                    <div style="width: 50px; padding: 2px; border-right: 1px solid var(--border-color-light);">feature-max</div>
-                    <div style="flex: 1; padding: 2px;">gutter</div>
+                    <div style="flex: 1; padding: 2px; border-right: 1px solid var(--border-color-light); min-width: 50px;">gutter</div>
+                    <div style="width: 80px; padding: 2px; border-right: 1px solid var(--border-color-light);">feature-max</div>
+                    <div style="width: 60px; padding: 2px; border-right: 1px solid var(--border-color-light);">feature</div>
+                    <div style="width: min(600px, calc(100% - 8rem)); padding: 2px; border-right: 1px solid var(--border-color-light);">content</div>
+                    <div style="width: 60px; padding: 2px; border-right: 1px solid var(--border-color-light);">feature</div>
+                    <div style="width: 80px; padding: 2px; border-right: 1px solid var(--border-color-light);">feature-max</div>
+                    <div style="flex: 1; padding: 2px; min-width: 50px;">gutter</div>
                 </div>
                 
                 <!-- Content examples -->
@@ -817,24 +817,32 @@
                     <!-- Default content (content area) -->
                     <div>
                         <h5 class="text--h6 margin-bottom--xs">Default Content (no class)</h5>
-                        <div style="max-width: min(1140px, calc(100% - 4rem)); margin: 0 auto; background: var(--primary-trans-20); padding: var(--space-s); border-radius: var(--radius-s); text-align: center; border: 2px solid var(--primary);">
+                        <div style="max-width: min(600px, calc(100% - 8rem)); margin: 0 auto; background: var(--primary-trans-20); padding: var(--space-s); border-radius: var(--radius-s); text-align: center; border: 2px solid var(--primary);">
                             <span class="text--s font--mono">Regular content spans content area only</span>
+                        </div>
+                    </div>
+                    
+                    <!-- .content-width -->
+                    <div>
+                        <h5 class="text--h6 margin-bottom--xs">.content-width</h5>
+                        <div style="max-width: min(600px, calc(100% - 8rem)); margin: 0 auto; background: var(--info-trans-20); padding: var(--space-s); border-radius: var(--radius-s); text-align: center; border: 2px solid var(--info);">
+                            <span class="text--s font--mono">Same as default - content area with max-width constraint</span>
                         </div>
                     </div>
                     
                     <!-- .content--feature -->
                     <div>
                         <h5 class="text--h6 margin-bottom--xs">.content--feature</h5>
-                        <div style="max-width: calc(min(1140px, calc(100% - 4rem)) + 100px); margin: 0 auto; background: var(--accent-trans-20); padding: var(--space-s); border-radius: var(--radius-s); text-align: center; border: 2px solid var(--accent);">
-                            <span class="text--s font--mono">Feature content spans content + feature areas</span>
+                        <div style="max-width: calc(min(600px, calc(100% - 8rem)) + 120px); margin: 0 auto; background: var(--accent-trans-20); padding: var(--space-s); border-radius: var(--radius-s); text-align: center; border: 2px solid var(--accent);">
+                            <span class="text--s font--mono">Feature spans content + feature areas (wider)</span>
                         </div>
                     </div>
                     
                     <!-- .content--feature-max -->
                     <div>
                         <h5 class="text--h6 margin-bottom--xs">.content--feature-max</h5>
-                        <div style="max-width: calc(min(1140px, calc(100% - 4rem)) + 200px); margin: 0 auto; background: var(--warning-trans-20); padding: var(--space-s); border-radius: var(--radius-s); text-align: center; border: 2px solid var(--warning);">
-                            <span class="text--s font--mono">Feature-max spans content + feature + feature-max</span>
+                        <div style="max-width: calc(min(600px, calc(100% - 8rem)) + 280px); margin: 0 auto; background: var(--warning-trans-20); padding: var(--space-s); border-radius: var(--radius-s); text-align: center; border: 2px solid var(--warning);">
+                            <span class="text--s font--mono">Feature-max spans content + feature + feature-max (widest)</span>
                         </div>
                     </div>
                     
@@ -858,13 +866,13 @@
                 
                 <!-- Grid visualization overlay -->
                 <div style="position: absolute; top: 20px; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 1;">
-                    <!-- Vertical grid lines -->
-                    <div style="position: absolute; left: 1rem; top: 0; bottom: 0; width: 1px; background: var(--primary-trans-30);"></div>
-                    <div style="position: absolute; left: calc(1rem + 50px); top: 0; bottom: 0; width: 1px; background: var(--accent-trans-30);"></div>
-                    <div style="position: absolute; left: calc(1rem + 100px); top: 0; bottom: 0; width: 1px; background: var(--warning-trans-30);"></div>
-                    <div style="position: absolute; right: calc(1rem + 100px); top: 0; bottom: 0; width: 1px; background: var(--warning-trans-30);"></div>
-                    <div style="position: absolute; right: calc(1rem + 50px); top: 0; bottom: 0; width: 1px; background: var(--accent-trans-30);"></div>
-                    <div style="position: absolute; right: 1rem; top: 0; bottom: 0; width: 1px; background: var(--primary-trans-30);"></div>
+                    <!-- Vertical grid lines with more dramatic spacing -->
+                    <div style="position: absolute; left: 50px; top: 0; bottom: 0; width: 2px; background: var(--primary-trans-50);"></div>
+                    <div style="position: absolute; left: calc(50px + 80px); top: 0; bottom: 0; width: 2px; background: var(--accent-trans-50);"></div>
+                    <div style="position: absolute; left: calc(50px + 80px + 60px); top: 0; bottom: 0; width: 2px; background: var(--warning-trans-50);"></div>
+                    <div style="position: absolute; right: calc(50px + 80px + 60px); top: 0; bottom: 0; width: 2px; background: var(--warning-trans-50);"></div>
+                    <div style="position: absolute; right: calc(50px + 80px); top: 0; bottom: 0; width: 2px; background: var(--accent-trans-50);"></div>
+                    <div style="position: absolute; right: 50px; top: 0; bottom: 0; width: 2px; background: var(--primary-trans-50);"></div>
                 </div>
             </div>
         </section>
@@ -954,15 +962,18 @@
     </div>
 
     <script>
-        function showTooltip(event, variable, hexValue) {
-            const tooltip = document.getElementById('tooltip');
+        function showTooltip(element, variable, hexValue) {
+            const colorWheel = element.closest('.color-wheel');
+            const tooltip = colorWheel.querySelector('.color-tooltip');
+            
             // Convert hex to HSL for display
             const hsl = hexToHsl(hexValue);
             tooltip.innerHTML = `${variable}<br>HEX: ${hexValue}<br>HSL: ${hsl}`;
             
-            // Position tooltip to the right of cursor
-            tooltip.style.left = (event.clientX + 15) + 'px';
-            tooltip.style.top = (event.clientY - 40) + 'px';
+            // Position tooltip to the right of the color wheel
+            tooltip.style.left = '220px';
+            tooltip.style.top = '50%';
+            tooltip.style.transform = 'translateY(-50%)';
             tooltip.classList.add('show');
         }
         
@@ -995,8 +1006,9 @@
             return `${Math.round(h * 360)}°, ${Math.round(s * 100)}%, ${Math.round(l * 100)}%`;
         }
         
-        function hideTooltip() {
-            const tooltip = document.getElementById('tooltip');
+        function hideTooltip(element) {
+            const colorWheel = element.closest('.color-wheel');
+            const tooltip = colorWheel.querySelector('.color-tooltip');
             tooltip.classList.remove('show');
         }
     </script>
