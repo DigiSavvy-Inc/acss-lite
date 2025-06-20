@@ -54,19 +54,25 @@
     @return 1;
   }
   
-  $result: 1;
-  
-  @if $exponent > 0 {
-    @for $i from 1 through $exponent {
-      $result: $result * $base;
+  // For integer exponents, use simple multiplication
+  @if $exponent == math.round($exponent) {
+    $result: 1;
+    
+    @if $exponent > 0 {
+      @for $i from 1 through $exponent {
+        $result: $result * $base;
+      }
+    } @else {
+      @for $i from 1 through math.abs($exponent) {
+        $result: math.div($result, $base);
+      }
     }
-  } @else {
-    @for $i from 1 through math.abs($exponent) {
-      $result: math.div($result, $base);
-    }
+    
+    @return $result;
   }
   
-  @return $result;
+  // For decimal exponents, use math.pow if available, or approximate
+  @return math.exp($exponent * math.log($base));
 }
 
 // Round to specified decimal places
@@ -189,9 +195,32 @@
   $sizes: config('sizes');
   $scale: ();
   
-  @each $size, $multiplier in $sizes {
-    $value: $base * pow($ratio, $multiplier - 1);
-    $scale: map.set($scale, $size, $value);
+  // Pre-calculated scale positions for each size
+  $scale-positions: (
+    'xs': -2,   // Two steps down
+    's': -1,    // One step down  
+    'm': 0,     // Base size
+    'l': 1,     // One step up
+    'xl': 2,    // Two steps up
+    'xxl': 3,   // Three steps up
+  );
+  
+  @each $size, $position in $scale-positions {
+    @if $position == 0 {
+      $scale: map.set($scale, $size, $base);
+    } @else if $position > 0 {
+      $value: $base;
+      @for $i from 1 through $position {
+        $value: $value * $ratio;
+      }
+      $scale: map.set($scale, $size, $value);
+    } @else {
+      $value: $base;
+      @for $i from 1 through math.abs($position) {
+        $value: math.div($value, $ratio);
+      }
+      $scale: map.set($scale, $size, $value);
+    }
   }
   
   @return $scale;
