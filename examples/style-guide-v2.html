@@ -758,11 +758,40 @@
             <div style="background: var(--neutral-ultra-light); padding: var(--space-l); border-radius: var(--radius-m); margin-top: var(--space-l);">
                 <div style="margin-bottom: var(--space-s);">
                     <div style="background: var(--success); height: 20px; width: 1140px; max-width: 100%; border-radius: var(--radius-s); margin-bottom: var(--space-xs);"></div>
-                    <span class="text--s text--base-light font--mono">.width--content (var(--content-width): 1140px)</span>
+                    <span class="text--s text--base-light font--mono">.content-width (var(--content-width): 1140px)</span>
                 </div>
                 <div style="margin-bottom: var(--space-s);">
-                    <div style="background: var(--success); height: 20px; width: 1340px; max-width: 100%; border-radius: var(--radius-s); margin-bottom: var(--space-xs);"></div>
-                    <span class="text--s text--base-light font--mono">.width--content-wide (var(--content-width-wide): 1340px)</span>
+                    <div style="background: var(--success); height: 20px; width: calc(100% - 4rem); max-width: 1140px; border-radius: var(--radius-s); margin-bottom: var(--space-xs);"></div>
+                    <span class="text--s text--base-light font--mono">.content-width--safe (min(var(--content-width), 100% - gutter*2))</span>
+                </div>
+            </div>
+
+            <h3 class="text--h3">Content-Grid System</h3>
+            <p class="text--s text--base-light">ACSS Content-Grid provides named grid lines for sophisticated layout control:</p>
+            <div style="background: var(--neutral-ultra-light); padding: var(--space-l); border-radius: var(--radius-m); margin-top: var(--space-l);">
+                <div style="margin-bottom: var(--space-m);">
+                    <h4 class="text--h5 margin-bottom--s">Grid Template Structure</h4>
+                    <div class="font--mono text--xs" style="background: var(--shade-trans-5); padding: var(--space-s); border-radius: var(--radius-s); margin-bottom: var(--space-s);">
+                        [full-start] gutter [feature-max-start] [feature-start] [content-start] content [content-end] [feature-end] [feature-max-end] gutter [full-end]
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: var(--space-s);">
+                    <h5 class="text--h6 margin-bottom--xs">Content Grid Classes:</h5>
+                    <div class="text--s">
+                        <div style="margin-bottom: var(--space-xs);"><strong>.content-grid</strong> - Enable content-grid on container</div>
+                        <div style="margin-bottom: var(--space-xs);"><strong>.content--feature</strong> - Span feature columns (wider than content)</div>
+                        <div style="margin-bottom: var(--space-xs);"><strong>.content--feature-max</strong> - Span feature-max columns (widest)</div>
+                        <div style="margin-bottom: var(--space-xs);"><strong>.content--full</strong> - Span full width (edge to edge)</div>
+                        <div><strong>.content--full-safe</strong> - Span full width with gutter padding</div>
+                    </div>
+                </div>
+                
+                <div style="background: var(--info-ultra-light); padding: var(--space-m); border-radius: var(--radius-s); border-left: 4px solid var(--info);">
+                    <h5 class="text--h6 margin-bottom--xs text--info-dark">Mathematical Precision</h5>
+                    <p class="text--xs text--info-dark margin--0">
+                        Content-grid uses named grid lines and sophisticated minmax() calculations to provide precise control over content width and breakout behavior. Content automatically centers while breakout elements can expand to feature or full-width areas.
+                    </p>
                 </div>
             </div>
         </section>
