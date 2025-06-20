@@ -68,12 +68,12 @@ $framework-config: (
   // Used for consistent sizing across all systems
   
   'sizes': (
-    'xs': 0.75,    // Extra small
-    's': 0.875,    // Small
-    'm': 1,        // Medium (base)
-    'l': 1.25,     // Large
-    'xl': 1.5,     // Extra large
-    'xxl': 2,      // Double extra large
+    'xs': 0.5,     // Extra small (0.5rem = 8px)
+    's': 0.75,     // Small (0.75rem = 12px)
+    'm': 1,        // Medium (1rem = 16px - base)
+    'l': 1.5,      // Large (1.5rem = 24px)
+    'xl': 2.25,    // Extra large (2.25rem = 36px)
+    'xxl': 3.5,    // Double extra large (3.5rem = 56px)
   ),
   
   // ==========================================================================
