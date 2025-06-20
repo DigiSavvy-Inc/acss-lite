@@ -34,29 +34,36 @@
 }
 
 // =============================================================================
-// Padding Utilities
+// Space Utilities (for padding)
 // =============================================================================
 
 // All sides padding - T-shirt sizes
 @each $size in get-spacing-sizes() {
-  .padding--#{$size} {
+  .space--#{$size} {
     padding: var(--space-#{$size}) !important;
   }
   
   // Fluid variant
-  .padding--#{$size}-fluid {
+  .space--#{$size}-fluid {
     padding: var(--space-#{$size}-fluid) !important;
   }
 }
 
-// Special padding values
+// Special space values
 @each $name, $value in get-special-spacing() {
-  .padding--#{$name} {
+  .space--#{$name} {
     padding: #{$value} !important;
   }
 }
 
-// Directional padding utilities
+// Legacy padding utilities (for backwards compatibility)
+@each $size in get-spacing-sizes() {
+  .padding--#{$size} {
+    padding: var(--space-#{$size}) !important;
+  }
+}
+
+// Directional space utilities
 $directions: (
   'top': 'padding-top',
   'right': 'padding-right', 
@@ -69,6 +76,11 @@ $directions: (
 @each $direction, $property in $directions {
   // T-shirt sizes
   @each $size in get-spacing-sizes() {
+    .space-#{$direction}--#{$size} {
+      #{$property}: var(--space-#{$size}) !important;
+    }
+    
+    // Legacy support
     .padding-#{$direction}--#{$size} {
       #{$property}: var(--space-#{$size}) !important;
     }
@@ -76,7 +88,7 @@ $directions: (
   
   // Special sizes
   @each $name, $value in get-special-spacing() {
-    .padding-#{$direction}--#{$name} {
+    .space-#{$direction}--#{$name} {
       #{$property}: #{$value} !important;
     }
   }
@@ -274,21 +286,21 @@ $margin-directions: (
 // Generate responsive variants for key spacing utilities
 @each $bp-name, $bp-value in config('breakpoints') {
   @media (min-width: $bp-value) {
-    // Padding
+    // Space utilities
     @each $size in ('xs', 's', 'm', 'l', 'xl') {
-      .#{$bp-name}\:padding--#{$size} {
+      .#{$bp-name}\:space--#{$size} {
         padding: var(--space-#{$size}) !important;
       }
       
-      .#{$bp-name}\:padding-top--#{$size} {
+      .#{$bp-name}\:space-top--#{$size} {
         padding-top: var(--space-#{$size}) !important;
       }
       
-      .#{$bp-name}\:padding-bottom--#{$size} {
+      .#{$bp-name}\:space-bottom--#{$size} {
         padding-bottom: var(--space-#{$size}) !important;
       }
       
-      .#{$bp-name}\:padding-inline--#{$size} {
+      .#{$bp-name}\:space-inline--#{$size} {
         padding-inline: var(--space-#{$size}) !important;
       }
     }
