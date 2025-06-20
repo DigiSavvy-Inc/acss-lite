@@ -41,56 +41,96 @@
         }
         
         .color-wheel {
-            position: relative;
+            --num-colors: 5;
+            --color-size: calc(100% / var(--num-colors));
             width: 200px;
             height: 200px;
+            position: relative;
             border-radius: 50%;
             margin: 2rem auto;
             cursor: pointer;
             transition: var(--transition);
+            transform: rotate(calc(-180deg / var(--num-colors)));
         }
         
         .color-wheel:hover {
-            transform: scale(1.05);
+            transform: scale(1.05) rotate(calc(-180deg / var(--num-colors)));
             box-shadow: var(--shadow-l);
         }
         
-        .wheel-slice {
+        .color-wheel.primary {
+            background: conic-gradient(
+                var(--primary-ultra-light) calc(0 * var(--color-size)) calc(1 * var(--color-size)),
+                var(--primary-light) calc(1 * var(--color-size)) calc(2 * var(--color-size)),
+                var(--primary) calc(2 * var(--color-size)) calc(3 * var(--color-size)),
+                var(--primary-dark) calc(3 * var(--color-size)) calc(4 * var(--color-size)),
+                var(--primary-ultra-dark) calc(4 * var(--color-size)) calc(5 * var(--color-size))
+            );
+        }
+        
+        .color-wheel.secondary {
+            background: conic-gradient(
+                var(--secondary-ultra-light) calc(0 * var(--color-size)) calc(1 * var(--color-size)),
+                var(--secondary-light) calc(1 * var(--color-size)) calc(2 * var(--color-size)),
+                var(--secondary) calc(2 * var(--color-size)) calc(3 * var(--color-size)),
+                var(--secondary-dark) calc(3 * var(--color-size)) calc(4 * var(--color-size)),
+                var(--secondary-ultra-dark) calc(4 * var(--color-size)) calc(5 * var(--color-size))
+            );
+        }
+        
+        .color-wheel.accent {
+            background: conic-gradient(
+                var(--accent-ultra-light) calc(0 * var(--color-size)) calc(1 * var(--color-size)),
+                var(--accent-light) calc(1 * var(--color-size)) calc(2 * var(--color-size)),
+                var(--accent) calc(2 * var(--color-size)) calc(3 * var(--color-size)),
+                var(--accent-dark) calc(3 * var(--color-size)) calc(4 * var(--color-size)),
+                var(--accent-ultra-dark) calc(4 * var(--color-size)) calc(5 * var(--color-size))
+            );
+        }
+        
+        .color-wheel.success {
+            background: conic-gradient(
+                var(--success-ultra-light) calc(0 * var(--color-size)) calc(1 * var(--color-size)),
+                var(--success-light) calc(1 * var(--color-size)) calc(2 * var(--color-size)),
+                var(--success) calc(2 * var(--color-size)) calc(3 * var(--color-size)),
+                var(--success-dark) calc(3 * var(--color-size)) calc(4 * var(--color-size)),
+                var(--success-ultra-dark) calc(4 * var(--color-size)) calc(5 * var(--color-size))
+            );
+        }
+        
+        .color-wheel::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-radius: 50%;
+            background: var(--white);
+            width: 50%;
+            height: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: var(--shadow-s);
+        }
+        
+        /* Color wheel segment hover detection */
+        .color-segment {
             position: absolute;
             width: 100%;
             height: 100%;
             clip-path: polygon(50% 50%, 50% 0%, 95.1% 30.9%, 50% 50%);
+            cursor: pointer;
             transition: var(--transition);
         }
         
-        .wheel-slice:hover {
+        .color-segment:hover {
             transform: scale(1.1);
             z-index: 10;
-            filter: brightness(1.1);
         }
         
-        .wheel-slice:nth-child(1) { transform: rotate(0deg); }
-        .wheel-slice:nth-child(2) { transform: rotate(72deg); }
-        .wheel-slice:nth-child(3) { transform: rotate(144deg); }
-        .wheel-slice:nth-child(4) { transform: rotate(216deg); }
-        .wheel-slice:nth-child(5) { transform: rotate(288deg); }
-        
-        /* Ensure no gaps between slices */
-        .wheel-slice {
-            clip-path: polygon(50% 50%, 50% 0%, 95.1% 30.9%, 50% 50%);
-        }
-        .wheel-slice:nth-child(2) {
-            clip-path: polygon(50% 50%, 95.1% 30.9%, 79.4% 79.4%, 50% 50%);
-        }
-        .wheel-slice:nth-child(3) {
-            clip-path: polygon(50% 50%, 79.4% 79.4%, 20.6% 79.4%, 50% 50%);
-        }
-        .wheel-slice:nth-child(4) {
-            clip-path: polygon(50% 50%, 20.6% 79.4%, 4.9% 30.9%, 50% 50%);
-        }
-        .wheel-slice:nth-child(5) {
-            clip-path: polygon(50% 50%, 4.9% 30.9%, 50% 0%, 50% 50%);
-        }
+        .color-segment:nth-child(1) { transform: rotate(0deg); }
+        .color-segment:nth-child(2) { transform: rotate(72deg); }
+        .color-segment:nth-child(3) { transform: rotate(144deg); }
+        .color-segment:nth-child(4) { transform: rotate(216deg); }
+        .color-segment:nth-child(5) { transform: rotate(288deg); }
         
         .wheel-center {
             position: absolute;
@@ -273,20 +313,20 @@
             <div class="color-wheels">
                 <!-- Primary Color Wheel -->
                 <div>
-                    <div class="color-wheel">
-                        <div class="wheel-slice" style="background: var(--primary-ultra-light);" 
+                    <div class="color-wheel primary">
+                        <div class="color-segment" 
                              onmouseover="showTooltip(event, '--primary-ultra-light', '#d1e8ff')"
                              onmouseout="hideTooltip()"></div>
-                        <div class="wheel-slice" style="background: var(--primary-light);" 
+                        <div class="color-segment" 
                              onmouseover="showTooltip(event, '--primary-light', '#56aaff')"
                              onmouseout="hideTooltip()"></div>
-                        <div class="wheel-slice" style="background: var(--primary);" 
+                        <div class="color-segment" 
                              onmouseover="showTooltip(event, '--primary', '#0066cc')"
                              onmouseout="hideTooltip()"></div>
-                        <div class="wheel-slice" style="background: var(--primary-dark);" 
+                        <div class="color-segment" 
                              onmouseover="showTooltip(event, '--primary-dark', '#004c99')"
                              onmouseout="hideTooltip()"></div>
-                        <div class="wheel-slice" style="background: var(--primary-ultra-dark);" 
+                        <div class="color-segment" 
                              onmouseover="showTooltip(event, '--primary-ultra-dark', '#003366')"
                              onmouseout="hideTooltip()"></div>
                         <div class="wheel-center" style="background: var(--primary);">Primary</div>
@@ -300,20 +340,20 @@
 
                 <!-- Secondary Color Wheel -->
                 <div>
-                    <div class="color-wheel">
-                        <div class="wheel-slice" style="background: var(--secondary-ultra-light);" 
+                    <div class="color-wheel secondary">
+                        <div class="color-segment" 
                              onmouseover="showTooltip(event, '--secondary-ultra-light', '#e8eaec')"
                              onmouseout="hideTooltip()"></div>
-                        <div class="wheel-slice" style="background: var(--secondary-light);" 
+                        <div class="color-segment" 
                              onmouseover="showTooltip(event, '--secondary-light', '#adb3b8')"
                              onmouseout="hideTooltip()"></div>
-                        <div class="wheel-slice" style="background: var(--secondary);" 
+                        <div class="color-segment" 
                              onmouseover="showTooltip(event, '--secondary', '#6c757d')"
                              onmouseout="hideTooltip()"></div>
-                        <div class="wheel-slice" style="background: var(--secondary-dark);" 
+                        <div class="color-segment" 
                              onmouseover="showTooltip(event, '--secondary-dark', '#51585e')"
                              onmouseout="hideTooltip()"></div>
-                        <div class="wheel-slice" style="background: var(--secondary-ultra-dark);" 
+                        <div class="color-segment" 
                              onmouseover="showTooltip(event, '--secondary-ultra-dark', '#363a3e')"
                              onmouseout="hideTooltip()"></div>
                         <div class="wheel-center" style="background: var(--secondary);">Secondary</div>
@@ -326,20 +366,20 @@
 
                 <!-- Accent Color Wheel -->
                 <div>
-                    <div class="color-wheel">
-                        <div class="wheel-slice" style="background: var(--accent-ultra-light);" 
+                    <div class="color-wheel accent">
+                        <div class="color-segment" 
                              onmouseover="showTooltip(event, '--accent-ultra-light', '#ffebeb')"
                              onmouseout="hideTooltip()"></div>
-                        <div class="wheel-slice" style="background: var(--accent-light);" 
+                        <div class="color-segment" 
                              onmouseover="showTooltip(event, '--accent-light', '#ffb3b3')"
                              onmouseout="hideTooltip()"></div>
-                        <div class="wheel-slice" style="background: var(--accent);" 
+                        <div class="color-segment" 
                              onmouseover="showTooltip(event, '--accent', '#ff6b6b')"
                              onmouseout="hideTooltip()"></div>
-                        <div class="wheel-slice" style="background: var(--accent-dark);" 
+                        <div class="color-segment" 
                              onmouseover="showTooltip(event, '--accent-dark', '#ff3333')"
                              onmouseout="hideTooltip()"></div>
-                        <div class="wheel-slice" style="background: var(--accent-ultra-dark);" 
+                        <div class="color-segment" 
                              onmouseover="showTooltip(event, '--accent-ultra-dark', '#cc0000')"
                              onmouseout="hideTooltip()"></div>
                         <div class="wheel-center" style="background: var(--accent);">Accent</div>
@@ -352,20 +392,20 @@
 
                 <!-- Success Color Wheel -->
                 <div>
-                    <div class="color-wheel">
-                        <div class="wheel-slice" style="background: var(--success-ultra-light);" 
+                    <div class="color-wheel success">
+                        <div class="color-segment" 
                              onmouseover="showTooltip(event, '--success-ultra-light', '#d1fae5')"
                              onmouseout="hideTooltip()"></div>
-                        <div class="wheel-slice" style="background: var(--success-light);" 
+                        <div class="color-segment" 
                              onmouseover="showTooltip(event, '--success-light', '#6ee7b7')"
                              onmouseout="hideTooltip()"></div>
-                        <div class="wheel-slice" style="background: var(--success);" 
+                        <div class="color-segment" 
                              onmouseover="showTooltip(event, '--success', '#10b981')"
                              onmouseout="hideTooltip()"></div>
-                        <div class="wheel-slice" style="background: var(--success-dark);" 
+                        <div class="color-segment" 
                              onmouseover="showTooltip(event, '--success-dark', '#059669')"
                              onmouseout="hideTooltip()"></div>
-                        <div class="wheel-slice" style="background: var(--success-ultra-dark);" 
+                        <div class="color-segment" 
                              onmouseover="showTooltip(event, '--success-ultra-dark', '#047857')"
                              onmouseout="hideTooltip()"></div>
                         <div class="wheel-center" style="background: var(--success);">Success</div>
