@@ -223,7 +223,6 @@
         
         /* Spacing demo styles */
         .spacing-demo {
-            background: var(--primary-trans-10);
             border: 2px dashed var(--primary-trans-30);
             border-radius: var(--radius-s);
             display: flex;
@@ -232,6 +231,20 @@
             color: var(--primary-dark);
             font-weight: 500;
             font-size: var(--text-s);
+            /* Remove background so we can see the padding effect */
+            position: relative;
+        }
+        
+        .spacing-demo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--primary-trans-10);
+            border-radius: var(--radius-s);
+            z-index: -1;
         }
         
         /* Demo card styles */
@@ -634,12 +647,12 @@
 
             <h3 class="text--h3">Space Scale - T-Shirt Sizing</h3>
             <div class="sg-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-                <div class="spacing-demo space--xs" style="min-height: 60px;">XS Space (.space--xs)</div>
-                <div class="spacing-demo space--s" style="min-height: 60px;">S Space (.space--s)</div>
-                <div class="spacing-demo space--m" style="min-height: 60px;">M Space (.space--m)</div>
-                <div class="spacing-demo space--l" style="min-height: 60px;">L Space (.space--l)</div>
-                <div class="spacing-demo space--xl" style="min-height: 60px;">XL Space (.space--xl)</div>
-                <div class="spacing-demo space--xxl" style="min-height: 60px;">XXL Space (.space--xxl)</div>
+                <div class="spacing-demo space--xs">XS Space (.space--xs)</div>
+                <div class="spacing-demo space--s">S Space (.space--s)</div>
+                <div class="spacing-demo space--m">M Space (.space--m)</div>
+                <div class="spacing-demo space--l">L Space (.space--l)</div>
+                <div class="spacing-demo space--xl">XL Space (.space--xl)</div>
+                <div class="spacing-demo space--xxl">XXL Space (.space--xxl)</div>
             </div>
 
             <div class="bg--info-ultra-light space--l border-radius--m margin-top--l">
