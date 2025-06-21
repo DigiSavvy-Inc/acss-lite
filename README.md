@@ -2,7 +2,7 @@
 
 A lightweight, variable-driven CSS framework inspired by [Automatic.css](https://automattic.css) philosophy, focusing on consistency, mathematical precision, and contextual design patterns.
 
-> **Inspiration & Attribution**: This framework is built upon the foundational principles and architectural concepts pioneered by [Kevin Geary](https://geary.co/) and the [Automatic.css team](https://automattic.css). Their tedious attention-detailed approach to systematic CSS architecture, T-shirt sizing methodology, and mathematical design principles serves as the inspiration for this implementation.
+> **Inspiration & Attribution**: This framework is built upon the foundational principles and architectural concepts pioneered by [Kevin Geary](https://geary.co/) and the [Automatic.css team](https://automaticcss.com/). Their tedious attention-detailed approach to systematic CSS architecture, T-shirt sizing methodology, and mathematical design principles serves as the inspiration for this implementation.
 
 ## Core Principles
 

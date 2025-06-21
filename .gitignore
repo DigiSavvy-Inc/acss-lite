@@ -37,7 +37,7 @@ Thumbs.db
 *.mov
 
 # Keep only the background SVG we use
-!bg-lines.svg
+!assets/bg-lines.svg
 
 # Documentation work files
 *.md.bak
