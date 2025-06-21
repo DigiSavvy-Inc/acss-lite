@@ -71,8 +71,8 @@
     @return $result;
   }
   
-  // For decimal exponents, use math.pow if available, or approximate
-  @return math.exp($exponent * math.log($base));
+  // For decimal exponents, use math.pow
+  @return math.pow($base, $exponent);
 }
 
 // Round to specified decimal places

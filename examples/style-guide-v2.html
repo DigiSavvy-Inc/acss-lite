@@ -67,6 +67,11 @@
             transform: scale(1.05) rotate(calc(-180deg / var(--num-colors)));
             box-shadow: var(--shadow-l);
         }
+
+        /* Fix tooltip rotation for transparency wheels only */
+        .color-wheel.transparency .color-tooltip {
+            transform: rotate(20deg) !important;
+        }
         
         .color-wheel:hover {
             transform: scale(1.05) rotate(calc(-180deg / var(--num-colors)));
@@ -1054,32 +1059,70 @@
             <h2 class="text--h2 text--primary">Typography System</h2>
             <p class="text--l text--base-light">Fluid, responsive typography with mathematical precision and T-shirt sizing.</p>
 
-            <h3 class="text--h3">Heading Scale</h3>
-            <div class="type-specimen">
-                <h1 class="margin--0">Heading 1 - Main Page Title</h1>
-                <p class="text--s text--base-light margin--0">font-size: var(--h1) | .text--h1</p>
-            </div>
-            <div class="type-specimen">
-                <h2 class="margin--0">Heading 2 - Section Title</h2>
-                <p class="text--s text--base-light margin--0">font-size: var(--h2) | .text--h2</p>
-            </div>
-            <div class="type-specimen">
-                <h3 class="margin--0">Heading 3 - Subsection Title</h3>
-                <p class="text--s text--base-light margin--0">font-size: var(--h3) | .text--h3</p>
+            <h3 class="text--h3">Typography Scale</h3>
+            <div class="sg-grid" style="grid-template-columns: 1fr 1fr; gap: var(--space-xl);">
+                <div class="typography-col">
+                    <!-- Column 1: Larger headings -->
+                    <div class="type-specimen margin-bottom--l">
+                        <div class="text--s text--base-light margin-bottom--xs">Regular 400 at H1 size</div>
+                        <h1 class="margin--0">The Quick Brown Fox Jumps Over the Fence Daily</h1>
+                    </div>
+                    <div class="type-specimen margin-bottom--l">
+                        <div class="text--s text--base-light margin-bottom--xs">Regular 400 at H2 size</div>
+                        <h2 class="margin--0">The Quick Brown Fox Jumps Over the Fence Daily</h2>
+                    </div>
+                    <div class="type-specimen margin-bottom--l">
+                        <div class="text--s text--base-light margin-bottom--xs">Regular 400 at H3 size</div>
+                        <h3 class="margin--0">The Quick Brown Fox Jumps Over the Fence Daily</h3>
+                    </div>
+                </div>
+                
+                <div class="typography-col">
+                    <!-- Column 2: Smaller headings and body text -->
+                    <div class="type-specimen margin-bottom--l">
+                        <div class="text--s text--base-light margin-bottom--xs">Regular 400 at H4 size</div>
+                        <h4 class="margin--0">The Quick Brown Fox Jumps Over the Fence Daily</h4>
+                    </div>
+                    <div class="type-specimen margin-bottom--l">
+                        <div class="text--s text--base-light margin-bottom--xs">Regular 400 at H5 size</div>
+                        <h5 class="margin--0">The Quick Brown Fox Jumps Over the Fence Daily</h5>
+                    </div>
+                    <div class="type-specimen margin-bottom--l">
+                        <div class="text--s text--base-light margin-bottom--xs">Regular 400 at H6 size</div>
+                        <h6 class="margin--0">The Quick Brown Fox Jumps Over the Fence Daily</h6>
+                    </div>
+                </div>
             </div>
 
-            <h3 class="text--h3">Text Sizes - T-Shirt Scale</h3>
-            <div class="type-specimen">
-                <p class="text--xs margin--0">Extra Small Text (.text--xs) - Perfect for captions and disclaimers</p>
-            </div>
-            <div class="type-specimen">
-                <p class="text--s margin--0">Small Text (.text--s) - Great for secondary information and labels</p>
-            </div>
-            <div class="type-specimen">
-                <p class="text--m margin--0">Medium Text (.text--m) - Default body text size for optimal readability</p>
-            </div>
-            <div class="type-specimen">
-                <p class="text--l margin--0">Large Text (.text--l) - Perfect for emphasis and introductions</p>
+            <h3 class="text--h3">Body Text Scale</h3>
+            <div class="sg-grid" style="grid-template-columns: 1fr 1fr; gap: var(--space-xl);">
+                <div class="typography-col">
+                    <!-- Column 1: Larger text sizes -->
+                    <div class="type-specimen margin-bottom--l">
+                        <div class="text--s text--base-light margin-bottom--xs">Regular 400 at .text--xl</div>
+                        <p class="text--xl margin--0">Whereas recognition of the inherent dignity and of the equal and inalienable rights of all members of the human family is the foundation of freedom, justice and peace in the world.</p>
+                    </div>
+                    <div class="type-specimen margin-bottom--l">
+                        <div class="text--s text--base-light margin-bottom--xs">Regular 400 at .text--l</div>
+                        <p class="text--l margin--0">No one shall be subjected to arbitrary arrest, detention or exile. Everyone is entitled in full equality to a fair and public hearing by an independent and impartial tribunal, in the determination of his rights and obligations and of any criminal charge against him.</p>
+                    </div>
+                </div>
+                
+                <div class="typography-col">
+                    <!-- Column 2: Smaller text sizes -->
+                    <div class="type-specimen margin-bottom--l">
+                        <div class="text--s text--base-light margin-bottom--xs">Regular 400 at .text--m (default)</div>
+                        <p class="text--m margin--0">Everyone has the right to freedom of thought, conscience and religion; this right includes freedom to change his religion or belief, and freedom, either alone or in community with others and in public or private, to manifest his religion or belief in teaching, practice, worship and observance. Everyone has the right to freedom of opinion and expression.</p>
+                    </div>
+                    <div class="type-specimen margin-bottom--l">
+                        <div class="text--s text--base-light margin-bottom--xs">Regular 400 at .text--s</div>
+                        <p class="text--s margin--0">Everyone has the right to rest and leisure, including reasonable limitation of working hours and periodic holidays with pay. Everyone has the right to a standard of living adequate for the health and well-being of himself and of his family, including food, clothing, housing and medical care and necessary social services, and the right to security in the event of unemployment, sickness, disability, widowhood, old age or other lack of livelihood in circumstances beyond his control.</p>
+                    </div>
+                    <div class="type-specimen margin-bottom--l">
+                        <div class="text--s text--base-light margin-bottom--xs">Regular 400 at .text--xs</div>
+                        <p class="text--xs margin--0">Motherhood and childhood are entitled to special care and assistance. All children, whether born in or out of wedlock, shall enjoy the same social protection. Everyone has the right to education. Education shall be free, at least in the elementary and fundamental stages. Elementary education shall be compulsory. Technical and professional education shall be made generally available and higher education shall be equally accessible to all on the basis of merit. Education shall be directed to the full development of the human personality and to the strengthening of respect for human rights and fundamental freedoms.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
