@@ -72,6 +72,45 @@
         .color-wheel.transparency .color-tooltip {
             transform: rotate(20deg) !important;
         }
+
+        /* Transparency wheel segments use same approach but with 9 segments */
+        .color-wheel.transparency .color-segment {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            top: 50%;
+            left: 50%;
+            transform-origin: 0 0;
+            overflow: hidden;
+        }
+
+        .color-wheel.transparency .color-segment:nth-child(1) {
+            transform: rotate(0deg) skewY(50deg);
+        }
+        .color-wheel.transparency .color-segment:nth-child(2) {
+            transform: rotate(40deg) skewY(50deg);
+        }
+        .color-wheel.transparency .color-segment:nth-child(3) {
+            transform: rotate(80deg) skewY(50deg);
+        }
+        .color-wheel.transparency .color-segment:nth-child(4) {
+            transform: rotate(120deg) skewY(50deg);
+        }
+        .color-wheel.transparency .color-segment:nth-child(5) {
+            transform: rotate(160deg) skewY(50deg);
+        }
+        .color-wheel.transparency .color-segment:nth-child(6) {
+            transform: rotate(200deg) skewY(50deg);
+        }
+        .color-wheel.transparency .color-segment:nth-child(7) {
+            transform: rotate(240deg) skewY(50deg);
+        }
+        .color-wheel.transparency .color-segment:nth-child(8) {
+            transform: rotate(280deg) skewY(50deg);
+        }
+        .color-wheel.transparency .color-segment:nth-child(9) {
+            transform: rotate(320deg) skewY(50deg);
+        }
         
         .color-wheel:hover {
             transform: scale(1.05) rotate(calc(-180deg / var(--num-colors)));
