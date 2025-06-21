@@ -213,9 +213,8 @@
             pointer-events: none;
             opacity: 0;
             transition: var(--transition);
-            /* Reset any inherited transforms */
-            transform: none;
-            /* Position will be set by JavaScript */
+            transform: translate(-50%, -10px);
+            transform: rotate(36deg) !important;
         }
         
         .color-tooltip.show {
@@ -416,6 +415,7 @@
                              onmouseover="showTooltip(event.target, '--secondary-ultra-dark', '#363a3e')"
                              onmouseout="hideTooltip(event.target)"></div>
                         <div class="wheel-center" style="background: var(--secondary);">Secondary</div>
+                        <div class="color-tooltip"></div>
                     </div>
                     <div class="color-info">
                         <h3 class="text--h5 margin--0">Secondary Color</h3>
@@ -442,6 +442,7 @@
                              onmouseover="showTooltip(event.target, '--accent-ultra-dark', '#cc0000')"
                              onmouseout="hideTooltip(event.target)"></div>
                         <div class="wheel-center" style="background: var(--accent);">Accent</div>
+                        <div class="color-tooltip"></div>
                     </div>
                     <div class="color-info">
                         <h3 class="text--h5 margin--0">Accent Color</h3>
@@ -468,6 +469,7 @@
                              onmouseover="showTooltip(event.target, '--neutral-ultra-dark', '#4f6f99')"
                              onmouseout="hideTooltip(event.target)"></div>
                         <div class="wheel-center" style="background: var(--neutral); color: var(--base);">Neutral</div>
+                        <div class="color-tooltip"></div>
                     </div>
                     <div class="color-info">
                         <h3 class="text--h5 margin--0">Neutral Color</h3>
@@ -497,6 +499,7 @@
                              onmouseover="showTooltip(event.target, '--success-ultra-dark', '#085c41')"
                              onmouseout="hideTooltip(event.target)"></div>
                         <div class="wheel-center" style="background: var(--success);">Success</div>
+                        <div class="color-tooltip"></div>
                     </div>
                     <div class="color-info">
                         <h3 class="text--h5 margin--0">Success Color</h3>
@@ -523,6 +526,7 @@
                              onmouseover="showTooltip(event.target, '--info-ultra-dark', '#063b91')"
                              onmouseout="hideTooltip(event.target)"></div>
                         <div class="wheel-center" style="background: var(--info);">Info</div>
+                        <div class="color-tooltip"></div>
                     </div>
                     <div class="color-info">
                         <h3 class="text--h5 margin--0">Info Color</h3>
@@ -549,6 +553,7 @@
                              onmouseover="showTooltip(event.target, '--warning-ultra-dark', '#7b4f05')"
                              onmouseout="hideTooltip(event.target)"></div>
                         <div class="wheel-center" style="background: var(--warning);">Warning</div>
+                        <div class="color-tooltip"></div>
                     </div>
                     <div class="color-info">
                         <h3 class="text--h5 margin--0">Warning Color</h3>
@@ -575,6 +580,7 @@
                              onmouseover="showTooltip(event.target, '--danger-ultra-dark', '#8d0c0c')"
                              onmouseout="hideTooltip(event.target)"></div>
                         <div class="wheel-center" style="background: var(--danger);">Danger</div>
+                        <div class="color-tooltip"></div>
                     </div>
                     <div class="color-info">
                         <h3 class="text--h5 margin--0">Danger Color</h3>
@@ -994,11 +1000,9 @@
             tooltip.innerHTML = `${variable}<br>HEX: ${hexValue}<br>HSL: ${hsl}`;
             
             // Position tooltip to the right of the color wheel
-            // Reset any inherited rotation and position properly
-            tooltip.style.position = 'absolute';
             tooltip.style.left = '220px';
             tooltip.style.top = '50%';
-            tooltip.style.transform = 'translateY(-50%) rotate(0deg)';
+            tooltip.style.transform = 'translateY(-50%)';
             tooltip.classList.add('show');
         }
         
