@@ -52,6 +52,8 @@
             cursor: pointer;
             transition: var(--transition);
             transform: rotate(calc(-180deg / var(--num-colors)));
+            /* Ensure tooltip positioning context */
+            isolation: isolate;
         }
         
         .color-wheel:hover {
@@ -211,7 +213,9 @@
             pointer-events: none;
             opacity: 0;
             transition: var(--transition);
-            transform: translate(-50%, -10px);
+            /* Reset any inherited transforms */
+            transform: none;
+            /* Position will be set by JavaScript */
         }
         
         .color-tooltip.show {
@@ -370,20 +374,20 @@
                 <div>
                     <div class="color-wheel primary">
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--primary-ultra-light', '#d1e8ff')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--primary-ultra-light', '#d1e8ff')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--primary-light', '#56aaff')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--primary-light', '#56aaff')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--primary', '#0066cc')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--primary', '#0066cc')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--primary-dark', '#004c99')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--primary-dark', '#004c99')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--primary-ultra-dark', '#003366')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--primary-ultra-dark', '#003366')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="wheel-center" style="background: var(--primary);">Primary</div>
                         <div class="color-tooltip" id="tooltip"></div>
                     </div>
@@ -397,20 +401,20 @@
                 <div>
                     <div class="color-wheel secondary">
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--secondary-ultra-light', '#e8eaec')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--secondary-ultra-light', '#e8eaec')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--secondary-light', '#adb3b8')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--secondary-light', '#adb3b8')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--secondary', '#6c757d')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--secondary', '#6c757d')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--secondary-dark', '#51585e')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--secondary-dark', '#51585e')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--secondary-ultra-dark', '#363a3e')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--secondary-ultra-dark', '#363a3e')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="wheel-center" style="background: var(--secondary);">Secondary</div>
                     </div>
                     <div class="color-info">
@@ -423,20 +427,20 @@
                 <div>
                     <div class="color-wheel accent">
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--accent-ultra-light', '#ffebeb')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--accent-ultra-light', '#ffebeb')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--accent-light', '#ffb3b3')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--accent-light', '#ffb3b3')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--accent', '#ff6b6b')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--accent', '#ff6b6b')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--accent-dark', '#ff3333')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--accent-dark', '#ff3333')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--accent-ultra-dark', '#cc0000')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--accent-ultra-dark', '#cc0000')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="wheel-center" style="background: var(--accent);">Accent</div>
                     </div>
                     <div class="color-info">
@@ -449,20 +453,20 @@
                 <div>
                     <div class="color-wheel neutral">
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--neutral-ultra-light', '#fafbfc')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--neutral-ultra-light', '#fafbfc')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--neutral-light', '#eff2f7')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--neutral-light', '#eff2f7')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--neutral', '#e2e8f0')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--neutral', '#e2e8f0')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--neutral-dark', '#95ab88')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--neutral-dark', '#95ab88')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--neutral-ultra-dark', '#4f6f99')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--neutral-ultra-dark', '#4f6f99')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="wheel-center" style="background: var(--neutral); color: var(--base);">Neutral</div>
                     </div>
                     <div class="color-info">
@@ -478,20 +482,20 @@
                 <div>
                     <div class="color-wheel success">
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--success-ultra-light', '#d4f3e5')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--success-ultra-light', '#d4f3e5')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--success-light', '#62f1c3')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--success-light', '#62f1c3')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--success', '#10b981')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--success', '#10b981')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--success-dark', '#0c8b61')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--success-dark', '#0c8b61')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--success-ultra-dark', '#085c41')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--success-ultra-dark', '#085c41')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="wheel-center" style="background: var(--success);">Success</div>
                     </div>
                     <div class="color-info">
@@ -504,20 +508,20 @@
                 <div>
                     <div class="color-wheel info">
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--info-ultra-light', '#e1ecfd')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--info-ultra-light', '#e1ecfd')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--info-light', '#93bafd')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--info-light', '#93bafd')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--info', '#3b82f6')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--info', '#3b82f6')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--info-dark', '#0a59db')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--info-dark', '#0a59db')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--info-ultra-dark', '#063b91')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--info-ultra-dark', '#063b91')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="wheel-center" style="background: var(--info);">Info</div>
                     </div>
                     <div class="color-info">
@@ -530,20 +534,20 @@
                 <div>
                     <div class="color-wheel warning">
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--warning-ultra-light', '#fdf0da')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--warning-ultra-light', '#fdf0da')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--warning-light', '#f9c979')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--warning-light', '#f9c979')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--warning', '#f59e0b')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--warning', '#f59e0b')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--warning-dark', '#b8770b')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--warning-dark', '#b8770b')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--warning-ultra-dark', '#7b4f05')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--warning-ultra-dark', '#7b4f05')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="wheel-center" style="background: var(--warning);">Warning</div>
                     </div>
                     <div class="color-info">
@@ -556,20 +560,20 @@
                 <div>
                     <div class="color-wheel danger">
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--danger-ultra-light', '#fce3e3')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--danger-ultra-light', '#fce3e3')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--danger-light', '#f69898')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--danger-light', '#f69898')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--danger', '#ef4444')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--danger', '#ef4444')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--danger-dark', '#d41212')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--danger-dark', '#d41212')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="color-segment" 
-                             onmouseover="showTooltip(event, '--danger-ultra-dark', '#8d0c0c')"
-                             onmouseout="hideTooltip()"></div>
+                             onmouseover="showTooltip(event.target, '--danger-ultra-dark', '#8d0c0c')"
+                             onmouseout="hideTooltip(event.target)"></div>
                         <div class="wheel-center" style="background: var(--danger);">Danger</div>
                     </div>
                     <div class="color-info">
@@ -980,14 +984,21 @@
             const colorWheel = element.closest('.color-wheel');
             const tooltip = colorWheel.querySelector('.color-tooltip');
             
+            if (!tooltip) {
+                console.error('Tooltip element not found!');
+                return;
+            }
+            
             // Convert hex to HSL for display
             const hsl = hexToHsl(hexValue);
             tooltip.innerHTML = `${variable}<br>HEX: ${hexValue}<br>HSL: ${hsl}`;
             
             // Position tooltip to the right of the color wheel
+            // Reset any inherited rotation and position properly
+            tooltip.style.position = 'absolute';
             tooltip.style.left = '220px';
             tooltip.style.top = '50%';
-            tooltip.style.transform = 'translateY(-50%)';
+            tooltip.style.transform = 'translateY(-50%) rotate(0deg)';
             tooltip.classList.add('show');
         }
         
@@ -1023,6 +1034,11 @@
         function hideTooltip(element) {
             const colorWheel = element.closest('.color-wheel');
             const tooltip = colorWheel.querySelector('.color-tooltip');
+            
+            if (!tooltip) {
+                return;
+            }
+            
             tooltip.classList.remove('show');
         }
     </script>
