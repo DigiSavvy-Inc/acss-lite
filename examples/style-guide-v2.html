@@ -61,6 +61,9 @@
             --num-colors: 9;
             --color-size: calc(100% / var(--num-colors));
             transform: rotate(calc(-180deg / var(--num-colors)));
+            background-image: url('bg-lines.svg');
+            background-repeat: repeat;
+            background-size: 20px 20px;
         }
 
         .color-wheel.transparency:hover {
@@ -475,6 +478,7 @@
                 <li><a href="#typography">Typography</a></li>
                 <li><a href="#spacing">Spacing (.space-- utilities)</a></li>
                 <li><a href="#components">Components</a></li>
+                <li><a href="#gap-spacing">Interactive Gap Spacing</a></li>
                 <li><a href="#widths">Width & Content-Grid Systems</a></li>
                 <li><a href="#effects">Effects & Shadows</a></li>
                 <li><a href="#variables">CSS Variables</a></li>
@@ -1017,6 +1021,153 @@
                     making the naming more semantic and consistent across the framework.
                 </p>
             </div>
+        </section>
+
+        <!-- Gap Spacing System -->
+        <section id="gap-spacing" class="sg-section">
+            <h2 class="text--h2 text--primary">Interactive Gap Spacing</h2>
+            <p class="text--l text--base-light">Experience the power of mathematical spacing scales. Click the buttons below to see how different gap values create visual rhythm and hierarchy.</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr auto; gap: var(--space-xl); align-items: start; margin: var(--space-xl) 0;">
+                
+                <!-- Gap Demo Grid -->
+                <div style="background: var(--neutral-ultra-light); background-image: url('bg-lines.svg'); background-repeat: repeat; background-size: 40px 40px; padding: var(--space-l); border-radius: var(--radius-m);">
+                    <div id="gap-demo-grid" class="gap-demo-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-m); transition: gap 0.3s ease;">
+                        <div class="gap-demo-item" style="background: var(--primary-light); height: 80px; border-radius: var(--radius-m); display: flex; align-items: center; justify-content: center; color: var(--primary-ultra-dark); font-weight: var(--font-weight-semibold);">Item 1</div>
+                        <div class="gap-demo-item" style="background: var(--primary-light); height: 80px; border-radius: var(--radius-m); display: flex; align-items: center; justify-content: center; color: var(--primary-ultra-dark); font-weight: var(--font-weight-semibold);">Item 2</div>
+                        <div class="gap-demo-item" style="background: var(--primary-light); height: 80px; border-radius: var(--radius-m); display: flex; align-items: center; justify-content: center; color: var(--primary-ultra-dark); font-weight: var(--font-weight-semibold);">Item 3</div>
+                        <div class="gap-demo-item" style="background: var(--primary-light); height: 80px; border-radius: var(--radius-m); display: flex; align-items: center; justify-content: center; color: var(--primary-ultra-dark); font-weight: var(--font-weight-semibold);">Item 4</div>
+                        <div class="gap-demo-item" style="background: var(--primary-light); height: 80px; border-radius: var(--radius-m); display: flex; align-items: center; justify-content: center; color: var(--primary-ultra-dark); font-weight: var(--font-weight-semibold);">Item 5</div>
+                        <div class="gap-demo-item" style="background: var(--primary-light); height: 80px; border-radius: var(--radius-m); display: flex; align-items: center; justify-content: center; color: var(--primary-ultra-dark); font-weight: var(--font-weight-semibold);">Item 6</div>
+                    </div>
+                    
+                    <!-- Current Gap Display -->
+                    <div style="margin-top: var(--space-m); text-align: center;">
+                        <p class="text--s text--base-light">Current Gap: <span id="current-gap-display" class="text--primary font--mono">var(--space-m)</span></p>
+                    </div>
+                </div>
+
+                <!-- Gap Controls -->
+                <div style="display: flex; flex-direction: column; gap: var(--space-s); min-width: 200px;">
+                    <h4 class="text--h5 margin-bottom--s">Spacing Scale</h4>
+                    
+                    <button class="btn btn--secondary gap-control-btn" data-gap="xs" data-gap-var="var(--space-xs)" style="justify-content: flex-start;">
+                        <span style="font-family: var(--font-mono); margin-right: var(--space-s);">.gap--xs</span>
+                        <span class="text--xs text--secondary-dark">0.5rem</span>
+                    </button>
+                    
+                    <button class="btn btn--secondary gap-control-btn" data-gap="s" data-gap-var="var(--space-s)" style="justify-content: flex-start;">
+                        <span style="font-family: var(--font-mono); margin-right: var(--space-s);">.gap--s</span>
+                        <span class="text--xs text--secondary-dark">0.75rem</span>
+                    </button>
+                    
+                    <button class="btn btn--primary gap-control-btn active" data-gap="m" data-gap-var="var(--space-m)" style="justify-content: flex-start;">
+                        <span style="font-family: var(--font-mono); margin-right: var(--space-s);">.gap--m</span>
+                        <span class="text--xs text--primary-light">1rem</span>
+                    </button>
+                    
+                    <button class="btn btn--secondary gap-control-btn" data-gap="l" data-gap-var="var(--space-l)" style="justify-content: flex-start;">
+                        <span style="font-family: var(--font-mono); margin-right: var(--space-s);">.gap--l</span>
+                        <span class="text--xs text--secondary-dark">1.5rem</span>
+                    </button>
+                    
+                    <button class="btn btn--secondary gap-control-btn" data-gap="xl" data-gap-var="var(--space-xl)" style="justify-content: flex-start;">
+                        <span style="font-family: var(--font-mono); margin-right: var(--space-s);">.gap--xl</span>
+                        <span class="text--xs text--secondary-dark">2.25rem</span>
+                    </button>
+                    
+                    <button class="btn btn--secondary gap-control-btn" data-gap="xxl" data-gap-var="var(--space-xxl)" style="justify-content: flex-start;">
+                        <span style="font-family: var(--font-mono); margin-right: var(--space-s);">.gap--xxl</span>
+                        <span class="text--xs text--secondary-dark">3.5rem</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mathematical Explanation -->
+            <div style="background: var(--primary-ultra-light); padding: var(--space-l); border-radius: var(--radius-m); margin-top: var(--space-l);">
+                <h4 class="text--h4 text--primary margin-bottom--m">Mathematical Spacing Scale</h4>
+                <p class="text--s text--base-light margin-bottom--m">Our spacing system follows the Golden Ratio (1.618) for harmonious visual rhythm. Each step increases by ~62% from the previous value, creating natural visual hierarchy.</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--space-m);">
+                    <div class="text--center">
+                        <div style="height: 8px; background: var(--primary); border-radius: var(--radius-s); margin-bottom: var(--space-xs);"></div>
+                        <span class="text--xs font--mono text--primary">xs: 0.5rem</span>
+                    </div>
+                    <div class="text--center">
+                        <div style="height: 12px; background: var(--primary); border-radius: var(--radius-s); margin-bottom: var(--space-xs);"></div>
+                        <span class="text--xs font--mono text--primary">s: 0.75rem</span>
+                    </div>
+                    <div class="text--center">
+                        <div style="height: 16px; background: var(--primary); border-radius: var(--radius-s); margin-bottom: var(--space-xs);"></div>
+                        <span class="text--xs font--mono text--primary">m: 1rem</span>
+                    </div>
+                    <div class="text--center">
+                        <div style="height: 24px; background: var(--primary); border-radius: var(--radius-s); margin-bottom: var(--space-xs);"></div>
+                        <span class="text--xs font--mono text--primary">l: 1.5rem</span>
+                    </div>
+                    <div class="text--center">
+                        <div style="height: 36px; background: var(--primary); border-radius: var(--radius-s); margin-bottom: var(--space-xs);"></div>
+                        <span class="text--xs font--mono text--primary">xl: 2.25rem</span>
+                    </div>
+                    <div class="text--center">
+                        <div style="height: 56px; background: var(--primary); border-radius: var(--radius-s); margin-bottom: var(--space-xs);"></div>
+                        <span class="text--xs font--mono text--primary">xxl: 3.5rem</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Responsive Note -->
+            <div style="background: var(--neutral-ultra-light); padding: var(--space-m); border-radius: var(--radius-m); margin-top: var(--space-l);">
+                <p class="text--s text--base-light"><strong>Tip:</strong> On smaller screens, the demo switches to a 2-column layout and controls stack below for better mobile experience.</p>
+            </div>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const gapGrid = document.getElementById('gap-demo-grid');
+                    const gapDisplay = document.getElementById('current-gap-display');
+                    const gapButtons = document.querySelectorAll('.gap-control-btn');
+                    
+                    // Handle gap button clicks
+                    gapButtons.forEach(button => {
+                        button.addEventListener('click', function() {
+                            const gapSize = this.dataset.gap;
+                            const gapVar = this.dataset.gapVar;
+                            
+                            // Update active state
+                            gapButtons.forEach(btn => {
+                                btn.classList.remove('btn--primary', 'active');
+                                btn.classList.add('btn--secondary');
+                            });
+                            this.classList.remove('btn--secondary');
+                            this.classList.add('btn--primary', 'active');
+                            
+                            // Update grid gap
+                            gapGrid.style.gap = gapVar;
+                            
+                            // Update display text
+                            gapDisplay.textContent = gapVar;
+                        });
+                    });
+                });
+            </script>
+
+            <style>
+                /* Responsive adjustments for gap demo */
+                @media (max-width: 768px) {
+                    .sg-section #gap-spacing > div:first-of-type {
+                        grid-template-columns: 1fr !important;
+                        gap: var(--space-l) !important;
+                    }
+                    
+                    #gap-demo-grid {
+                        grid-template-columns: repeat(2, 1fr) !important;
+                    }
+                    
+                    .gap-control-btn {
+                        justify-content: center !important;
+                    }
+                }
+            </style>
         </section>
 
         <!-- Components with updated utilities -->
