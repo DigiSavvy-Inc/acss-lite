@@ -479,7 +479,7 @@
                 <li><a href="#spacing">Spacing (.space-- utilities)</a></li>
                 <li><a href="#components">Components</a></li>
                 <li><a href="#gap-spacing">Interactive Gap Spacing</a></li>
-                <li><a href="#widths">Width & Content-Grid Systems</a></li>
+                <li><a href="#widths">Width & Grid Systems</a></li>
                 <li><a href="#effects">Effects & Shadows</a></li>
                 <li><a href="#variables">CSS Variables</a></li>
             </ul>
@@ -1437,6 +1437,131 @@
                     </p>
                 </div>
             </div>
+
+            <!-- Interactive Grid Configuration -->
+            <h3 class="text--h3">Interactive Grid Layouts</h3>
+            <p class="text--s text--base-light margin-bottom--m">Build any layout in seconds with responsive grids. Click the buttons below to see different grid configurations in action.</p>
+            
+            <div style="display: grid; grid-template-columns: 1fr auto; gap: var(--space-xl); align-items: start; margin: var(--space-xl) 0;">
+                
+                <!-- Grid Demo Area -->
+                <div style="background: var(--neutral-ultra-light); background-image: url('bg-lines.svg'); background-repeat: repeat; background-size: 40px 40px; padding: var(--space-l); border-radius: var(--radius-m);">
+                    <div id="grid-config-demo" class="grid-config-demo" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--grid-gap-m); transition: grid-template-columns 0.3s ease;">
+                        <div class="grid-config-item" style="background: var(--accent-light); min-height: 100px; border-radius: var(--radius-m); display: flex; align-items: center; justify-content: center; color: var(--accent-ultra-dark); font-weight: var(--font-weight-semibold); padding: var(--space-m);">Item 1</div>
+                        <div class="grid-config-item" style="background: var(--accent-light); min-height: 100px; border-radius: var(--radius-m); display: flex; align-items: center; justify-content: center; color: var(--accent-ultra-dark); font-weight: var(--font-weight-semibold); padding: var(--space-m);">Item 2</div>
+                        <div class="grid-config-item" style="background: var(--accent-light); min-height: 100px; border-radius: var(--radius-m); display: flex; align-items: center; justify-content: center; color: var(--accent-ultra-dark); font-weight: var(--font-weight-semibold); padding: var(--space-m);">Item 3</div>
+                        <div class="grid-config-item" style="background: var(--accent-light); min-height: 100px; border-radius: var(--radius-m); display: flex; align-items: center; justify-content: center; color: var(--accent-ultra-dark); font-weight: var(--font-weight-semibold); padding: var(--space-m);">Item 4</div>
+                        <div class="grid-config-item" style="background: var(--accent-light); min-height: 100px; border-radius: var(--radius-m); display: flex; align-items: center; justify-content: center; color: var(--accent-ultra-dark); font-weight: var(--font-weight-semibold); padding: var(--space-m);">Item 5</div>
+                        <div class="grid-config-item" style="background: var(--accent-light); min-height: 100px; border-radius: var(--radius-m); display: flex; align-items: center; justify-content: center; color: var(--accent-ultra-dark); font-weight: var(--font-weight-semibold); padding: var(--space-m);">Item 6</div>
+                    </div>
+                    
+                    <!-- Current Grid Display -->
+                    <div style="margin-top: var(--space-m); text-align: center;">
+                        <p class="text--s text--base-light">Current Grid: <span id="current-grid-display" class="text--accent font--mono">.grid--2</span></p>
+                    </div>
+                </div>
+
+                <!-- Grid Controls -->
+                <div style="display: flex; flex-direction: column; gap: var(--space-s); min-width: 250px;">
+                    <h4 class="text--h5 margin-bottom--s">Grid Configurations</h4>
+                    
+                    <button class="btn btn--secondary grid-config-btn" data-grid="1" data-grid-cols="1fr" style="justify-content: flex-start;">
+                        <span style="font-family: var(--font-mono); margin-right: var(--space-s);">.grid--1</span>
+                        <span class="text--xs text--secondary-dark">Single column</span>
+                    </button>
+                    
+                    <button class="btn btn--accent grid-config-btn active" data-grid="2" data-grid-cols="repeat(2, 1fr)" style="justify-content: flex-start;">
+                        <span style="font-family: var(--font-mono); margin-right: var(--space-s);">.grid--2</span>
+                        <span class="text--xs text--accent-light">Two columns</span>
+                    </button>
+                    
+                    <button class="btn btn--secondary grid-config-btn" data-grid="3" data-grid-cols="repeat(3, 1fr)" style="justify-content: flex-start;">
+                        <span style="font-family: var(--font-mono); margin-right: var(--space-s);">.grid--3</span>
+                        <span class="text--xs text--secondary-dark">Three columns</span>
+                    </button>
+                    
+                    <button class="btn btn--secondary grid-config-btn" data-grid="4" data-grid-cols="repeat(4, 1fr)" style="justify-content: flex-start;">
+                        <span style="font-family: var(--font-mono); margin-right: var(--space-s);">.grid--4</span>
+                        <span class="text--xs text--secondary-dark">Four columns</span>
+                    </button>
+                    
+                    <button class="btn btn--secondary grid-config-btn" data-grid="1-3" data-grid-cols="1fr 3fr" style="justify-content: flex-start;">
+                        <span style="font-family: var(--font-mono); margin-right: var(--space-s);">.grid--1-3</span>
+                        <span class="text--xs text--secondary-dark">1/4 + 3/4</span>
+                    </button>
+                    
+                    <button class="btn btn--secondary grid-config-btn" data-grid="2-1" data-grid-cols="2fr 1fr" style="justify-content: flex-start;">
+                        <span style="font-family: var(--font-mono); margin-right: var(--space-s);">.grid--2-1</span>
+                        <span class="text--xs text--secondary-dark">2/3 + 1/3</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Grid System Features -->
+            <div style="background: var(--accent-ultra-light); padding: var(--space-l); border-radius: var(--radius-m); margin-top: var(--space-l);">
+                <h4 class="text--h4 text--accent margin-bottom--m">Responsive Grid Features</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-m);">
+                    <div>
+                        <h5 class="text--h6 text--accent-dark margin-bottom--xs">Automatic Responsiveness</h5>
+                        <p class="text--xs text--base-light">All grid classes automatically stack on mobile devices for optimal viewing.</p>
+                    </div>
+                    <div>
+                        <h5 class="text--h6 text--accent-dark margin-bottom--xs">Flexible Layouts</h5>
+                        <p class="text--xs text--base-light">From simple equal columns to complex asymmetric layouts with ease.</p>
+                    </div>
+                    <div>
+                        <h5 class="text--h6 text--accent-dark margin-bottom--xs">Gap Control</h5>
+                        <p class="text--xs text--base-light">Combine with gap utilities for perfect spacing between grid items.</p>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const gridDemo = document.getElementById('grid-config-demo');
+                    const gridDisplay = document.getElementById('current-grid-display');
+                    const gridButtons = document.querySelectorAll('.grid-config-btn');
+                    
+                    // Handle grid button clicks
+                    gridButtons.forEach(button => {
+                        button.addEventListener('click', function() {
+                            const gridClass = this.dataset.grid;
+                            const gridCols = this.dataset.gridCols;
+                            
+                            // Update active state
+                            gridButtons.forEach(btn => {
+                                btn.classList.remove('btn--accent', 'active');
+                                btn.classList.add('btn--secondary');
+                            });
+                            this.classList.remove('btn--secondary');
+                            this.classList.add('btn--accent', 'active');
+                            
+                            // Update grid columns
+                            gridDemo.style.gridTemplateColumns = gridCols;
+                            
+                            // Update display text
+                            gridDisplay.textContent = `.grid--${gridClass}`;
+                        });
+                    });
+                });
+            </script>
+
+            <style>
+                /* Responsive adjustments for grid config demo */
+                @media (max-width: 768px) {
+                    #grid-config-demo {
+                        grid-template-columns: 1fr !important;
+                    }
+                    
+                    .grid-config-demo + div {
+                        margin-top: var(--space-m);
+                    }
+                    
+                    .sg-section > div[style*="grid-template-columns: 1fr auto"] {
+                        grid-template-columns: 1fr !important;
+                    }
+                }
+            </style>
 
             <h3 class="text--h3">Visual Content-Grid Demonstration</h3>
             <p class="text--s text--base-light">Interactive boxes showing how content spans different grid areas:</p>
