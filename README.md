@@ -1,6 +1,8 @@
 # Custom CSS Framework
 
-A lightweight, variable-driven CSS framework inspired by Automatic.css philosophy, focusing on consistency, mathematical precision, and contextual design patterns.
+A lightweight, variable-driven CSS framework inspired by [Automatic.css](https://automattic.css) philosophy, focusing on consistency, mathematical precision, and contextual design patterns.
+
+> **Inspiration & Attribution**: This framework is built upon the foundational principles and architectural concepts pioneered by [Kevin Geary](https://geary.co/) and the [Automatic.css team](https://automattic.css). Their tedious attention-detailed approach to systematic CSS architecture, T-shirt sizing methodology, and mathematical design principles serves as the inspiration for this implementation.
 
 ## Core Principles
 
@@ -135,6 +137,54 @@ npm run dev
 - Safari (last 2 versions)
 - Edge (last 2 versions)
 
+## Documentation
+
+- **[Getting Started Guide](GETTING-STARTED.md)** - Learn the core concepts and see examples
+- **[Interactive Style Guide](examples/style-guide-v2.html)** - Live demos of all components and utilities
+- **[Examples](examples/)** - Real-world implementation examples
+
+## Project Structure
+
+```
+├── src/                    # Source SCSS files
+│   ├── config/            # Framework configuration
+│   ├── foundation/        # Core functions, mixins, variables
+│   ├── systems/           # Color, typography, spacing systems
+│   ├── utilities/         # Utility classes
+│   └── patterns/          # Component patterns (buttons, cards, etc.)
+├── dist/                  # Compiled CSS files
+├── examples/              # Usage examples and style guide
+└── docs/                  # Additional documentation
+```
+
+## Attribution & Inspiration
+
+This framework is deeply inspired by and built upon the architectural principles pioneered by:
+
+- **[Kevin Geary](https://kevingeary.com)** - Visionary behind systematic CSS architecture
+- **[Automatic.css Team](https://automattic.css)** - Revolutionary CSS framework and methodology
+
+Their work in developing:
+- T-shirt sizing methodology
+- Mathematical design systems
+- Variable-first architecture
+- Contextual utility design
+- "Consistency over flexibility" philosophy
+
+...serves as the foundation for this implementation. This project aims to honor their principles while providing a standalone, framework-agnostic solution.
+
+## Community & Support
+
+- **Issues**: Report bugs and request features via GitHub Issues
+- **Discussions**: Join community discussions for tips and best practices
+- **Contributing**: See CONTRIBUTING.md for development guidelines
+
+## Acknowledgments
+
+Special thanks to the Automatic.css community for their continued innovation in systematic CSS design and for inspiring developers to think differently about CSS architecture.
+
 ## License
 
 MIT License - feel free to use in personal and commercial projects.
+
+See [LICENSE](LICENSE) for full license text.
