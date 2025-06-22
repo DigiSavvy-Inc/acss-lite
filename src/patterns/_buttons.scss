@@ -132,7 +132,7 @@
 .btn--neutral {
     background-color: var(--neutral);
     border-color: var(--neutral);
-    color: var(--neutral-ultra-dark);
+    color: var(--neutral-ultra-light);
     
     &:hover {
         background-color: var(--neutral-hover);
@@ -143,7 +143,7 @@
     &:active {
         background-color: var(--neutral-dark);
         border-color: var(--neutral-dark);
-        color: var(--neutral-ultra-dark);
+        color: var(--neutral-ultra-light);
     }
 }
 
@@ -174,8 +174,8 @@
 
 // Outline + Secondary
 .btn--secondary.btn--outline {
-    color: var(--secondary-ultra-dark);
-    border-color: var(--secondary-ultra-dark);
+    color: var(--secondary-ultra-light);
+    border-color: var(--secondary-ultra-light);
     
     &:hover {
         background-color: var(--secondary);

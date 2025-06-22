@@ -8878,7 +8878,7 @@ div#transparencies-content {
 .btn--neutral {
   background-color: var(--neutral);
   border-color: var(--neutral);
-  color: var(--neutral-ultra-dark);
+  color: var(--neutral-ultra-light);
 }
 .btn--neutral:hover {
   background-color: var(--neutral-hover);
@@ -8888,7 +8888,7 @@ div#transparencies-content {
 .btn--neutral:active {
   background-color: var(--neutral-dark);
   border-color: var(--neutral-dark);
-  color: var(--neutral-ultra-dark);
+  color: var(--neutral-ultra-light);
 }
 
 .btn--outline {
@@ -8909,8 +8909,8 @@ div#transparencies-content {
 }
 
 .btn--secondary.btn--outline {
-  color: var(--secondary-ultra-dark);
-  border-color: var(--secondary-ultra-dark);
+  color: var(--secondary-ultra-light);
+  border-color: var(--secondary-ultra-light);
 }
 .btn--secondary.btn--outline:hover {
   background-color: var(--secondary);
