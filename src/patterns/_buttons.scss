@@ -109,6 +109,25 @@
     }
 }
 
+// Action buttons
+.btn--action {
+    background-color: var(--action);
+    border-color: var(--action);
+    color: var(--action-ultra-light);
+    
+    &:hover {
+        background-color: var(--action-hover);
+        border-color: var(--action-hover);
+        color: var(--action-ultra-light);
+    }
+    
+    &:active {
+        background-color: var(--action-ultra-dark);
+        border-color: var(--action-ultra-dark);
+        color: var(--action-ultra-light);
+    }
+}
+
 // Neutral buttons
 .btn--neutral {
     background-color: var(--neutral);
@@ -185,6 +204,22 @@
     }
 }
 
+// Outline + Action
+.btn--action.btn--outline {
+    color: var(--action);
+    
+    &:hover {
+        background-color: var(--action);
+        color: var(--action-ultra-light);
+    }
+    
+    &:active {
+        background-color: var(--action-dark);
+        border-color: var(--action-dark);
+        color: var(--action-ultra-light);
+    }
+}
+
 // Outline + Neutral
 .btn--neutral.btn--outline {
     color: var(--neutral);
@@ -253,6 +288,24 @@
         background-color: var(--accent);
         border-color: var(--accent);
         color: var(--accent-ultra-light);
+    }
+}
+
+.btn--action.btn--light {
+    background-color: var(--action-ultra-light);
+    border-color: var(--action-ultra-light);
+    color: var(--action);
+    
+    &:hover {
+        background-color: var(--action-light);
+        border-color: var(--action-light);
+        color: var(--action-ultra-dark);
+    }
+    
+    &:active {
+        background-color: var(--action);
+        border-color: var(--action);
+        color: var(--action-ultra-light);
     }
 }
 
@@ -329,6 +382,24 @@
     }
 }
 
+.btn--action.btn--dark {
+    background-color: var(--action-ultra-dark);
+    border-color: var(--action-ultra-dark);
+    color: var(--action-ultra-light);
+    
+    &:hover {
+        background-color: var(--action-dark);
+        border-color: var(--action-dark);
+        color: var(--action-ultra-light);
+    }
+    
+    &:active {
+        background-color: var(--action);
+        border-color: var(--action);
+        color: var(--action-ultra-light);
+    }
+}
+
 .btn--neutral.btn--dark {
     background-color: var(--neutral-ultra-dark);
     border-color: var(--neutral-ultra-dark);
@@ -399,6 +470,23 @@
     }
 }
 
+.btn--action.btn--light.btn--outline {
+    background-color: transparent;
+    color: var(--action-ultra-light);
+    border-color: var(--action-ultra-light);
+    
+    &:hover {
+        background-color: var(--action-ultra-light);
+        color: var(--action);
+    }
+    
+    &:active {
+        background-color: var(--action-light);
+        border-color: var(--action-light);
+        color: var(--action-ultra-dark);
+    }
+}
+
 .btn--neutral.btn--light.btn--outline {
     background-color: transparent;
     color: var(--neutral-ultra-light);
@@ -465,6 +553,23 @@
         background-color: var(--accent-dark);
         border-color: var(--accent-dark);
         color: var(--accent-ultra-light);
+    }
+}
+
+.btn--action.btn--dark.btn--outline {
+    background-color: transparent;
+    color: var(--action-ultra-dark);
+    border-color: var(--action-ultra-dark);
+    
+    &:hover {
+        background-color: var(--action-ultra-dark);
+        color: var(--action-ultra-light);
+    }
+    
+    &:active {
+        background-color: var(--action-dark);
+        border-color: var(--action-dark);
+        color: var(--action-ultra-light);
     }
 }
 

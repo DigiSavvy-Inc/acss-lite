@@ -36,16 +36,18 @@ $framework-config: (
     "colors": (
             "primary": #0066cc,
             // Primary brand color
-            "secondary": #6c757d,
-            // Secondary brand color
-            "accent": #ff6b6b,
-            // Accent color for highlights
+            "secondary": #e2e8f0,
+            // Secondary brand color (swapped with neutral)
+            "accent": #D7AFBE,
+            // Accent color for highlights (new pink color)
+            "action": #ff6b6b,
+            // Action color (was accent)
             "base": #4a5568,
             // Base text color
             "shade": #1a202c,
             // Dark shade
-            "neutral": #e2e8f0,
-            // Light neutral
+            "neutral": #6c757d,
+            // Light neutral (swapped with secondary)
             "white": #ffffff,
             // Pure white
             "black": #000000,
