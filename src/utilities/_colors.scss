@@ -192,6 +192,81 @@
 }
 
 // =============================================================================
+// Color Wheel Transparency Demo
+// =============================================================================
+
+// Specific styling for transparencies content div
+div#transparencies-content {
+  background: linear-gradient(
+    to bottom, 
+    #f0f0f0 0rem,      /* 1rem stripe */
+    #f0f0f0 1rem, 
+    transparent 1rem,   /* 2rem gap */
+    transparent 3rem, 
+    #f0f0f0 3rem,      /* 1rem stripe */
+    #f0f0f0 4rem, 
+    transparent 4rem,   /* 2rem gap */
+    transparent 6rem
+  );
+  background-size: 100% 6rem;
+  background-repeat: repeat-y;
+}
+
+// Special styling for color wheel transparencies section only
+.color-wheels--transparency {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--grid-gap-l);
+  margin: 2rem 0;
+  
+  // Striped background pattern to show transparency effect
+  background: 
+    linear-gradient(
+      to bottom,
+      #f0f0f0 0,      // First stripe
+      #f0f0f0 1rem,   // 1rem height
+      transparent 1rem,
+      transparent 3rem, // 2rem gap
+      #f0f0f0 3rem,    // Second stripe
+      #f0f0f0 4rem,    // 1rem height
+      transparent 4rem,
+      transparent 6rem  // 2rem gap
+    );
+  background-size: 100% 6rem;
+  background-repeat: repeat-y;
+  
+  // Optional: Add alternating diagonal stripes for better transparency visibility
+  &.color-wheels--transparency-checkered {
+    background: 
+      repeating-linear-gradient(
+        45deg,
+        #f5f5f5,
+        #f5f5f5 10px,
+        #e0e0e0 10px,
+        #e0e0e0 20px
+      );
+  }
+  
+  // Optional: Dark mode version
+  &.color-wheels--transparency-dark {
+    background: 
+      linear-gradient(
+        to bottom,
+        #2a2a2a 0,
+        #2a2a2a 1rem,
+        transparent 1rem,
+        transparent 3rem,
+        #2a2a2a 3rem,
+        #2a2a2a 4rem,
+        transparent 4rem,
+        transparent 6rem
+      );
+    background-size: 100% 6rem;
+    background-repeat: repeat-y;
+  }
+}
+
+// =============================================================================
 // Responsive Color Utilities
 // =============================================================================
 

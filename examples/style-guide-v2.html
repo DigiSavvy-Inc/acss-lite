@@ -86,6 +86,28 @@
             align-items: start;
         }
         
+        /* Sticky Navigation */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--bg-color);
+            padding: var(--space-m) 0;
+            margin-bottom: var(--space-l);
+            border-bottom: 1px solid var(--border-color-light);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .sticky-nav.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+        }
+        
+        .sticky-nav .nav__link {
+            font-size: var(--text-s);
+            padding: var(--space-xs) var(--space-s);
+        }
+        
         /* Color Wheel Styles */
         .color-wheels {
             display: grid;
@@ -517,6 +539,124 @@
     </style>
 </head>
 <body>
+    <script>
+        // Handle navigation and sticky behavior
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainNav = document.getElementById('main-nav');
+            const sections = document.querySelectorAll('.sg-section');
+            
+            // Sticky navigation on scroll
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    mainNav.classList.add('scrolled');
+                } else {
+                    mainNav.classList.remove('scrolled');
+                }
+            });
+            
+            // Smooth scrolling for main navigation
+            const mainNavLinks = mainNav.querySelectorAll('.nav__link');
+            mainNavLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        // Update active state
+                        mainNavLinks.forEach(l => l.classList.remove('nav__link--active'));
+                        this.classList.add('nav__link--active');
+                        
+                        // Smooth scroll to section
+                        const navHeight = mainNav.offsetHeight;
+                        const targetPosition = targetSection.offsetTop - navHeight - 20;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Update active nav item on scroll
+            window.addEventListener('scroll', function() {
+                let current = '';
+                const navHeight = mainNav.offsetHeight;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - navHeight - 50;
+                    const sectionHeight = section.offsetHeight;
+                    
+                    if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                if (current) {
+                    mainNavLinks.forEach(link => {
+                        link.classList.remove('nav__link--active');
+                        if (link.getAttribute('href') === '#' + current) {
+                            link.classList.add('nav__link--active');
+                        }
+                    });
+                }
+            });
+            
+            // Prevent default link behavior for demo navigation items
+            const demoLinks = document.querySelectorAll('.nav__link:not(#main-nav .nav__link), .breadcrumb__link, .pagination__link, .tag');
+            
+            demoLinks.forEach(link => {
+                // Only prevent default if href is "#"
+                if (link.getAttribute('href') === '#') {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        // For nav items, handle active state
+                        if (this.classList.contains('nav__link') && !this.classList.contains('nav__link--disabled')) {
+                            // Remove active class from siblings
+                            const nav = this.closest('.nav');
+                            if (nav && nav.id !== 'main-nav') {
+                                nav.querySelectorAll('.nav__link--active').forEach(active => {
+                                    active.classList.remove('nav__link--active');
+                                });
+                                // Add active class to clicked item
+                                this.classList.add('nav__link--active');
+                            }
+                        }
+                        
+                        // For pagination, handle active state
+                        if (this.classList.contains('pagination__link') && !this.classList.contains('pagination__link--disabled')) {
+                            const pagination = this.closest('.pagination');
+                            if (pagination) {
+                                pagination.querySelectorAll('.pagination__link--active').forEach(active => {
+                                    active.classList.remove('pagination__link--active');
+                                });
+                                this.classList.add('pagination__link--active');
+                            }
+                        }
+                    });
+                }
+            });
+            
+            // Handle removable tags
+            const removeButtons = document.querySelectorAll('.tag__remove, .alert__close');
+            removeButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const parent = this.closest('.tag, .alert');
+                    if (parent) {
+                        parent.style.transition = 'opacity 0.3s, transform 0.3s';
+                        parent.style.opacity = '0';
+                        parent.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            parent.remove();
+                        }, 300);
+                    }
+                });
+            });
+        });
+    </script>
     <div class="style-guide">
         <header class="text--center margin-bottom--xl">
             <h1 class="text--display-1 text--primary margin-bottom--s">Custom CSS Framework v2</h1>
@@ -524,18 +664,15 @@
             <p class="text--m">Now featuring .space-- utilities and visual color exploration</p>
         </header>
 
-        <nav class="toc">
-            <h2 class="text--h3 margin-bottom--m">Table of Contents</h2>
-            <ul>
-                <li><a href="#colors">Interactive Color System</a></li>
-                <li><a href="#typography">Typography</a></li>
-                <li><a href="#spacing">Spacing (.space-- utilities)</a></li>
-                <li><a href="#components">Components</a></li>
-                <li><a href="#gap-spacing">Interactive Gap Spacing</a></li>
-                <li><a href="#widths">Width & Grid Systems</a></li>
-                <li><a href="#effects">Effects & Shadows</a></li>
-                <li><a href="#variables">CSS Variables</a></li>
-            </ul>
+        <nav class="nav nav--pills sticky-nav" id="main-nav">
+            <div class="nav__item"><a href="#colors" class="nav__link nav__link--active">Colors</a></div>
+            <div class="nav__item"><a href="#typography" class="nav__link">Typography</a></div>
+            <div class="nav__item"><a href="#spacing" class="nav__link">Spacing</a></div>
+            <div class="nav__item"><a href="#components" class="nav__link">Components</a></div>
+            <div class="nav__item"><a href="#gap-spacing" class="nav__link">Gap Spacing</a></div>
+            <div class="nav__item"><a href="#widths" class="nav__link">Widths</a></div>
+            <div class="nav__item"><a href="#effects" class="nav__link">Effects</a></div>
+            <div class="nav__item"><a href="#variables" class="nav__link">Variables</a></div>
         </nav>
 
         <!-- Interactive Color System -->
@@ -1399,6 +1536,140 @@
             <div style="background: var(--neutral-ultra-light); padding: var(--space-m); border-radius: var(--radius-m); margin-bottom: var(--space-l);">
                 <p class="text--s text--base-light"><strong>Note:</strong> The button grid stacks to a single column on smaller screens for better mobile experience.</p>
             </div>
+
+            <h3 class="text--h3">Alert Components</h3>
+            <p class="text--s text--base-light margin-bottom--m">Contextual alert messages using the ACSS color system.</p>
+            
+            <div style="display: grid; gap: var(--space-m); margin-bottom: var(--space-xl);">
+                <div class="alert alert--success">
+                    <div class="alert__title">Success!</div>
+                    <div class="alert__content">Your action has been completed successfully.</div>
+                </div>
+                
+                <div class="alert alert--warning">
+                    <div class="alert__title">Warning</div>
+                    <div class="alert__content">Please review the information before proceeding.</div>
+                </div>
+                
+                <div class="alert alert--danger alert--dismissible">
+                    <div class="alert__title">Error</div>
+                    <div class="alert__content">There was an error processing your request.</div>
+                    <button class="alert__close" type="button" aria-label="Close">×</button>
+                </div>
+                
+                <div class="alert alert--info alert--sm">
+                    <div class="alert__content">Small info alert without title</div>
+                </div>
+                
+                <div class="alert alert--primary alert--solid">
+                    <div class="alert__title">Solid Style</div>
+                    <div class="alert__content">Primary alert with solid background</div>
+                </div>
+                
+                <div class="alert alert--success alert--outline">
+                    <div class="alert__content">Outline style alert</div>
+                </div>
+            </div>
+
+            <h3 class="text--h3">Navigation Components</h3>
+            <p class="text--s text--base-light margin-bottom--m">Various navigation patterns for different use cases.</p>
+            
+            <!-- Basic Navigation -->
+            <h4 class="text--h4">Basic Navigation</h4>
+            <nav class="nav" style="margin-bottom: var(--space-l);">
+                <div class="nav__item"><a href="#" class="nav__link nav__link--active">Home</a></div>
+                <div class="nav__item"><a href="#" class="nav__link">About</a></div>
+                <div class="nav__item"><a href="#" class="nav__link">Services</a></div>
+                <div class="nav__item"><a href="#" class="nav__link">Contact</a></div>
+                <div class="nav__item"><a href="#" class="nav__link nav__link--disabled">Disabled</a></div>
+            </nav>
+            
+            <!-- Pills Navigation -->
+            <h4 class="text--h4">Pills Navigation</h4>
+            <nav class="nav nav--pills" style="margin-bottom: var(--space-l);">
+                <div class="nav__item"><a href="#" class="nav__link nav__link--active">Active</a></div>
+                <div class="nav__item"><a href="#" class="nav__link">Link</a></div>
+                <div class="nav__item"><a href="#" class="nav__link">Another</a></div>
+                <div class="nav__item"><a href="#" class="nav__link">Last</a></div>
+            </nav>
+            
+            <!-- Tabs Navigation -->
+            <h4 class="text--h4">Tabs Navigation</h4>
+            <nav class="nav nav--tabs" style="margin-bottom: var(--space-l);">
+                <div class="nav__item"><a href="#" class="nav__link nav__link--active">Active Tab</a></div>
+                <div class="nav__item"><a href="#" class="nav__link">Tab 2</a></div>
+                <div class="nav__item"><a href="#" class="nav__link">Tab 3</a></div>
+            </nav>
+            
+            <!-- Breadcrumb -->
+            <h4 class="text--h4">Breadcrumb</h4>
+            <nav class="breadcrumb" style="margin-bottom: var(--space-l);">
+                <div class="breadcrumb__item"><a href="#" class="breadcrumb__link">Home</a></div>
+                <div class="breadcrumb__item"><a href="#" class="breadcrumb__link">Category</a></div>
+                <div class="breadcrumb__item">Current Page</div>
+            </nav>
+            
+            <!-- Pagination -->
+            <h4 class="text--h4">Pagination</h4>
+            <nav class="pagination" style="margin-bottom: var(--space-xl);">
+                <div class="pagination__item"><a href="#" class="pagination__link pagination__link--disabled">Previous</a></div>
+                <div class="pagination__item"><a href="#" class="pagination__link pagination__link--active">1</a></div>
+                <div class="pagination__item"><a href="#" class="pagination__link">2</a></div>
+                <div class="pagination__item"><a href="#" class="pagination__link">3</a></div>
+                <div class="pagination__item"><a href="#" class="pagination__link">Next</a></div>
+            </nav>
+
+            <h3 class="text--h3">Badges & Tags</h3>
+            <p class="text--s text--base-light margin-bottom--m">Small status indicators and content labels.</p>
+            
+            <!-- Badges -->
+            <h4 class="text--h4">Badges</h4>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-m); margin-bottom: var(--space-l);">
+                <span class="badge badge--primary">Primary</span>
+                <span class="badge badge--secondary">Secondary</span>
+                <span class="badge badge--success">Success</span>
+                <span class="badge badge--warning">Warning</span>
+                <span class="badge badge--danger">Danger</span>
+                <span class="badge badge--info">Info</span>
+                <span class="badge badge--neutral">Neutral</span>
+            </div>
+            
+            <h4 class="text--h4">Badge Variants</h4>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-m); margin-bottom: var(--space-l);">
+                <span class="badge badge--primary badge--light">Light</span>
+                <span class="badge badge--success badge--outline">Outline</span>
+                <span class="badge badge--warning badge--pill">Pill</span>
+                <span class="badge badge--sm badge--info">Small</span>
+                <span class="badge badge--lg badge--danger">Large</span>
+            </div>
+            
+            <!-- Tags -->
+            <h4 class="text--h4">Tags</h4>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-s); margin-bottom: var(--space-l);">
+                <a href="#" class="tag">Default Tag</a>
+                <a href="#" class="tag tag--primary">Primary</a>
+                <a href="#" class="tag tag--success">Success</a>
+                <a href="#" class="tag tag--warning">Warning</a>
+                <a href="#" class="tag tag--danger">Danger</a>
+                <a href="#" class="tag tag--info">Info</a>
+            </div>
+            
+            <h4 class="text--h4">Removable Tags</h4>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-s); margin-bottom: var(--space-xl);">
+                <span class="tag tag--primary tag--removable">
+                    Tag 1
+                    <button class="tag__remove" type="button" aria-label="Remove">×</button>
+                </span>
+                <span class="tag tag--success tag--removable">
+                    Tag 2
+                    <button class="tag__remove" type="button" aria-label="Remove">×</button>
+                </span>
+                <span class="tag tag--pill tag--removable">
+                    Pill Tag
+                    <button class="tag__remove" type="button" aria-label="Remove">×</button>
+                </span>
+            </div>
+
         </section>
 
         <!-- Width System -->
