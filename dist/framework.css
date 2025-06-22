@@ -8830,12 +8830,12 @@ div#transparencies-content {
 .btn--secondary {
   background-color: var(--secondary);
   border-color: var(--secondary);
-  color: var(--secondary-ultra-light);
+  color: var(--secondary-ultra-dark);
 }
 .btn--secondary:hover {
   background-color: var(--secondary-hover);
   border-color: var(--secondary-hover);
-  color: var(--secondary-ultra-light);
+  color: var(--secondary-ultra-dark);
 }
 .btn--secondary:active {
   background-color: var(--secondary-ultra-dark);
@@ -8909,16 +8909,17 @@ div#transparencies-content {
 }
 
 .btn--secondary.btn--outline {
-  color: var(--secondary);
+  color: var(--secondary-ultra-dark);
+  border-color: var(--secondary-ultra-dark);
 }
 .btn--secondary.btn--outline:hover {
   background-color: var(--secondary);
-  color: var(--secondary-ultra-light);
+  color: var(--secondary-ultra-dark);
 }
 .btn--secondary.btn--outline:active {
   background-color: var(--secondary-dark);
   border-color: var(--secondary-dark);
-  color: var(--secondary-ultra-light);
+  color: var(--secondary-ultra-dark);
 }
 
 .btn--accent.btn--outline {
@@ -8979,7 +8980,7 @@ div#transparencies-content {
 .btn--secondary.btn--light {
   background-color: var(--secondary-ultra-light);
   border-color: var(--secondary-ultra-light);
-  color: var(--secondary);
+  color: var(--secondary-ultra-dark);
 }
 .btn--secondary.btn--light:hover {
   background-color: var(--secondary-light);
@@ -8989,7 +8990,7 @@ div#transparencies-content {
 .btn--secondary.btn--light:active {
   background-color: var(--secondary);
   border-color: var(--secondary);
-  color: var(--secondary-ultra-light);
+  color: var(--secondary-ultra-dark);
 }
 
 .btn--accent.btn--light {
@@ -9137,12 +9138,12 @@ div#transparencies-content {
 
 .btn--secondary.btn--light.btn--outline {
   background-color: transparent;
-  color: var(--secondary-ultra-light);
-  border-color: var(--secondary-ultra-light);
+  color: var(--secondary-ultra-dark);
+  border-color: var(--secondary-ultra-dark);
 }
 .btn--secondary.btn--light.btn--outline:hover {
-  background-color: var(--secondary-ultra-light);
-  color: var(--secondary);
+  background-color: var(--secondary-ultra-dark);
+  color: var(--secondary-ultra-light);
 }
 .btn--secondary.btn--light.btn--outline:active {
   background-color: var(--secondary-light);

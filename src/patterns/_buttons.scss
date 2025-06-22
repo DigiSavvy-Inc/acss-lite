@@ -75,12 +75,12 @@
 .btn--secondary {
     background-color: var(--secondary);
     border-color: var(--secondary);
-    color: var(--secondary-ultra-light);
+    color: var(--secondary-ultra-dark);
     
     &:hover {
         background-color: var(--secondary-hover);
         border-color: var(--secondary-hover);
-        color: var(--secondary-ultra-light);
+        color: var(--secondary-ultra-dark);
     }
     
     &:active {
@@ -174,17 +174,18 @@
 
 // Outline + Secondary
 .btn--secondary.btn--outline {
-    color: var(--secondary);
+    color: var(--secondary-ultra-dark);
+    border-color: var(--secondary-ultra-dark);
     
     &:hover {
         background-color: var(--secondary);
-        color: var(--secondary-ultra-light);
+        color: var(--secondary-ultra-dark);
     }
     
     &:active {
         background-color: var(--secondary-dark);
         border-color: var(--secondary-dark);
-        color: var(--secondary-ultra-light);
+        color: var(--secondary-ultra-dark);
     }
 }
 
@@ -258,7 +259,7 @@
 .btn--secondary.btn--light {
     background-color: var(--secondary-ultra-light);
     border-color: var(--secondary-ultra-light);
-    color: var(--secondary);
+    color: var(--secondary-ultra-dark);
     
     &:hover {
         background-color: var(--secondary-light);
@@ -269,7 +270,7 @@
     &:active {
         background-color: var(--secondary);
         border-color: var(--secondary);
-        color: var(--secondary-ultra-light);
+        color: var(--secondary-ultra-dark);
     }
 }
 
@@ -438,12 +439,12 @@
 
 .btn--secondary.btn--light.btn--outline {
     background-color: transparent;
-    color: var(--secondary-ultra-light);
-    border-color: var(--secondary-ultra-light);
+    color: var(--secondary-ultra-dark);
+    border-color: var(--secondary-ultra-dark);
     
     &:hover {
-        background-color: var(--secondary-ultra-light);
-        color: var(--secondary);
+        background-color: var(--secondary-ultra-dark);
+        color: var(--secondary-ultra-light);
     }
     
     &:active {
