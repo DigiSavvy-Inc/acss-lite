@@ -8909,8 +8909,8 @@ div#transparencies-content {
 }
 
 .btn--secondary.btn--outline {
-  color: var(--secondary-ultra-light);
-  border-color: var(--secondary-ultra-light);
+  color: var(--secondary-dark);
+  border-color: var(--secondary-dark);
 }
 .btn--secondary.btn--outline:hover {
   background-color: var(--secondary);
