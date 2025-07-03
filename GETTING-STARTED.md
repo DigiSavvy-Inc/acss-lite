@@ -196,11 +196,14 @@ $framework-config: (
 4. **Customize variables as needed**
 5. **Build components by combining utilities**
 
+For instructions on building and watching the CSS files during development, see the **[Build Instructions](BUILD.md)**.
+
 ## Next Steps
 
 - Explore the interactive style guide
 - Check out the examples in the `/examples` folder
 - Read the full documentation in README.md
+- Learn how to build and customize the framework in [BUILD.md](BUILD.md)
 - Join the community discussions for tips and best practices
 
 ## Need Help?
