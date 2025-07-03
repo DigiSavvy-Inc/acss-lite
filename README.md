@@ -140,7 +140,7 @@ npm run dev
 ## Documentation
 
 - **[Getting Started Guide](GETTING-STARTED.md)** - Learn the core concepts and see examples
-- **[Interactive Style Guide](examples/style-guide-v2.html)** - Live demos of all components and utilities
+- **[Interactive Style Guide](examples/style-guide.html)** - Live demos of all components and utilities
 - **[Examples](examples/)** - Real-world implementation examples
 
 ## Project Structure
