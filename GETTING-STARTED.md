@@ -105,7 +105,7 @@ Spacing follows the Golden Ratio (1.618) for natural visual harmony:
 
 ## Understanding the Style Guide
 
-The included interactive style guide (`examples/style-guide-v2.html`) demonstrates:
+The included interactive style guide (`examples/style-guide.html`) demonstrates:
 
 1. **Interactive Color System** - Click color wheels to see variables
 2. **Typography Scale** - See how all text sizes relate
@@ -205,7 +205,7 @@ $framework-config: (
 
 ## Need Help?
 
-- **Style Guide**: Open `examples/style-guide-v2.html` for interactive examples
+- **Style Guide**: Open `examples/style-guide.html` for interactive examples
 - **Documentation**: See README.md for complete API reference
 - **Examples**: Check the `/examples` folder for real-world usage
 
