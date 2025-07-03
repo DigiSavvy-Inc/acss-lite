@@ -1,6 +1,6 @@
 # Custom ACSS Framework Lite
 
-A lightweight, variable-driven CSS framework inspired by [Automatic.css](https://automattic.css) philosophy, focusing on consistency, mathematical precision, and contextual design patterns.
+A lightweight, variable-driven CSS framework inspired by [Automatic.css](https://automaticcss.com) philosophy, focusing on consistency, mathematical precision, and contextual design patterns.
 
 > **Inspiration & Attribution**: This framework is built upon the foundational principles and architectural concepts pioneered by [Kevin Geary](https://geary.co/) and the [Automatic.css team](https://automaticcss.com/). Their tedious attention-detailed approach to systematic CSS architecture, T-shirt sizing methodology, and mathematical design principles serves as the inspiration for this implementation.
 
@@ -161,8 +161,8 @@ npm run dev
 
 This framework is deeply inspired by and built upon the architectural principles pioneered by:
 
-- **[Kevin Geary](https://kevingeary.com)** - Visionary behind systematic CSS architecture
-- **[Automatic.css Team](https://automattic.css)** - Revolutionary CSS framework and methodology
+- **[Kevin Geary](https://geary.co)** - Visionary behind systematic CSS architecture
+- **[Automatic.css Team](https://automaticcss.com)** - Revolutionary CSS framework and methodology
 
 Their work in developing:
 - T-shirt sizing methodology
