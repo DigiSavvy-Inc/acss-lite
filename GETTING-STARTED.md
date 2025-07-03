@@ -4,7 +4,7 @@ Welcome to the Custom CSS Framework! This guide will help you understand the cor
 
 ## Philosophy
 
-This framework is inspired by [Automatic.css](https://automattic.css) and follows the principle of **"Consistency over Flexibility"**. Instead of infinite options, we provide a carefully curated set of utilities that work harmoniously together.
+This framework is inspired by [Automatic.css](https://automaticcss.com) and follows the principle of **"Consistency over Flexibility"**. Instead of infinite options, we provide a carefully curated set of utilities that work harmoniously together.
 
 ## Key Concepts
 
@@ -211,4 +211,4 @@ $framework-config: (
 
 ---
 
-**Attribution**: This framework is inspired by [Kevin Geary](https://kevingeary.com) and the [Automatic.css team](https://automattic.css). Their pioneering work in systematic CSS architecture provides the foundation for this implementation.
+**Attribution**: This framework is inspired by [Kevin Geary](https://geary.co) and the [Automatic.css team](https://automaticcss.com). Their pioneering work in systematic CSS architecture provides the foundation for this implementation.
