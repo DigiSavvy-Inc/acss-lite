@@ -1,4 +1,4 @@
-# Custom CSS Framework
+# Custom ACSS Framework Lite
 
 A lightweight, variable-driven CSS framework inspired by [Automatic.css](https://automattic.css) philosophy, focusing on consistency, mathematical precision, and contextual design patterns.
 
@@ -25,15 +25,15 @@ A lightweight, variable-driven CSS framework inspired by [Automatic.css](https:/
 
 ```php
 // In your theme's functions.php
-function enqueue_custom_framework() {
+function enqueue_custom_acss_framework_lite() {
     wp_enqueue_style(
-        'custom-framework',
+        'custom-acss-framework-lite',
         get_template_directory_uri() . '/assets/css/framework.min.css',
         array(),
         '1.0.0'
     );
 }
-add_action('wp_enqueue_scripts', 'enqueue_custom_framework');
+add_action('wp_enqueue_scripts', 'enqueue_custom_acss_framework_lite');
 ```
 
 ### 3. SCSS Customization

@@ -1,5 +1,5 @@
 {
-  "name": "custom-css-framework",
+  "name": "custom-acss-framework-lite",
   "version": "0.1.0",
   "description": "A lightweight, variable-driven CSS framework inspired by Automatic.css philosophy",
   "main": "dist/framework.css",
